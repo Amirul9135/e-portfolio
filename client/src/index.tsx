@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './index.css'; 
 import reportWebVitals from './reportWebVitals';
+import Mainpage from './main'
+import NavMenu from './components/NavMenu';
 
 
 import "../node_modules/font-awesome/css/font-awesome.min.css"
 
-import "../node_modules/bootstrap/dist/css/bootstrap.css"
-import "bootstrap"
+import "../node_modules/bootstrap/dist/css/bootstrap.css" 
+import "../node_modules/bootstrap/dist/js/bootstrap.js"   
+import "../node_modules/aos/dist/aos.js"
+import "../node_modules/aos/dist/aos.css" 
+import './style.css'
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App />
+root.render( 
+  <React.StrictMode> 
+    <Mainpage></Mainpage>
+    <NavMenu></NavMenu>
   </React.StrictMode>
 );
 
