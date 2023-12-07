@@ -1,68 +1,148 @@
- .menu-base{
+ .menu-base {
     position: absolute;
-    bottom: 0;
-    right: 0; 
-    box-sizing: border-box; 
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
     overflow: hidden;
     transition: all .3s;
     clear: both;
  }
- .menu{
+
+ .menu {
     position: relative;
-    width: min(20vh,20vw,150px);
-    height: min(20vh,20vw,150px);
-    transition: all .3s; 
-    -webkit-clip-path: polygon(0% 100%,  100% 0%,100% 100%);
-    clip-path:polygon(0% 100%, 100% 0%,100% 100%); 
+    width: min(20vh, 20vw, 150px);
+    height: min(20vh, 20vw, 150px);
+    transition: all .3s;
+    z-index: 10;
+    flex-direction: column-reverse; 
  }
- $icosize: calc(min(20vh,20vw,150px) * 0.4) ;
- .menu-icon{
+
+ $icosize: calc(min(20vh, 20vw, 150px) * 0.4);
+
+ .menu-icon {
     position: absolute;
-    width: $icosize;
-    height:  $icosize;
-    line-height: calc($icosize - 5px); 
-    font-size: calc($icosize / 2); ;
     right: 10%;
-    bottom: 10%;
+    top: 10%;
     text-align: center;
     vertical-align: middle;
-    color: white;
-    border-radius: 50%;
-    border: 2px solid;
+    animation: colorRotate 8s linear infinite;
+    color: yellow;
+
+    div {
+       position: relative;
+    }
+
+    .main-icon {
+       position: relative;
+       border-radius: 50%;
+       border: 2px solid;
+       width: $icosize;
+       height: $icosize;
+       line-height: calc($icosize - 5px);
+       font-size: calc($icosize / 2);
+
+       span {
+          top: 0;
+          left: 0;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: inherit;
+          animation: pulseAnimate 4s ease-out infinite;
+          opacity: .7;
+          animation-delay: calc(1s * var(--i));
+          color: rgba($color: #000000, $alpha: 0);
+          border: 2px solid yellow;
+       }
+    }
  }
-  .menu-content{
+
+ .menu-content {
+    position: relative;
     display: none;
-  }
- .menu-border{        
+    z-index: 10;  
+ }
+
+ .menu-border {
     transition: all .3s;
     float: left;
     height: 0;
-    width: 0; 
-    -webkit-clip-path: polygon(0% 100%, 50% 0%,0% 0%);
-    clip-path: polygon(0% 100%, 50% 0%,0% 0%);
+    width: 0;
+    -webkit-clip-path: polygon(0% 100%, 50% 0%, 0% 0%);
+    clip-path: polygon(0% 100%, 50% 0%, 0% 0%);
 
-    -webkit-shape-outside: polygon(0% 100%, 50% 0%,0% 0%);
-    shape-outside: polygon(0% 100%, 50% 0%,0% 0%);
- } 
- .menu:hover{
-    width: max(50vw,360px) ;
-    height: 100vh; 
-    -webkit-clip-path: polygon(0% 100%, 50% 0%,100% 0%,100% 100%);
-    clip-path:polygon(0% 100%, 50% 0%,100% 0%,100% 100%);
-    background-color: aqua; 
-    .menu-border{        
+    -webkit-shape-outside: polygon(0% 100%, 50% 0%, 0% 0%);
+    shape-outside: polygon(0% 100%, 50% 0%, 0% 0%);
+ }
+
+ $menuWidht: max(50vw, 360px);
+
+ .menu:hover {
+    width: $menuWidht;
+    height: 100vh;
+    -webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(0% 100%, 50% 0%, 100% 0%, 100% 100%);
+    background-color:rgba($color:  #040b14, $alpha: .1);
+    z-index: 1;
+
+    .menu-border {
        float: left;
        height: 100vh;
-       width:max(50vw,360px) ;
+       width: $menuWidht;
     }
-    .link{
-        background-color: red;
-        width: 100%;
+
+    .menu-item {   
+       background-color: whitesmoke;
+       width: 100%;
+       font-size: x-large;
+       color: black;
+       border: 1px solid green;
+       padding: 10px; 
+
+       i {
+          position: relative;
+          margin-right: 10px;
+          margin-left: 10px;
+
+          i {
+             opacity: 0;
+             color: yellow;
+             position: absolute;
+             left: -10px;
+             top: 0;
+          }
+       }
     }
-    .menu-content{
-      display: block;
+
+    .menu-item:hover {
+       i {
+          i {
+             opacity: 1;
+             animation: pulseAnimate .8s ease-out infinite, colorRotate .4s linear infinite;
+          }
+       }
     }
-    .menu-icon{
-        display: none;
+
+    .menu-content {
+       display: block;
+    }
+
+    .menu-icon {
+       display: none;
+    } 
+ }
+
+ @keyframes pulseAnimate {
+    100% {
+       opacity: 0;
+       transform: scale(1.5);
     }
  }
+
+ @keyframes colorRotate {
+    100% {
+       filter: hue-rotate(360deg);
+    }
+ }
+
+ 
