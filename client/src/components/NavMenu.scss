@@ -1,65 +1,68 @@
-@mixin build-circle($degree, $radius){
-    -webkit-transform: rotate($degree) translate($radius) rotate(-$degree);
-    -moz-transform: rotate($degree) translate($radius) rotate(-$degree);
-    -ms-transform: rotate($degree) translate($radius) rotate(-$degree);
-    -o-transform: rotate($degree) translate($radius) rotate(-$degree);
-    transform: rotate($degree) translate($radius) rotate(-$degree);
-}
-
-
-.menu-base{
+ .menu-base{
     position: absolute;
     bottom: 0;
-    right: 0;    
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    vertical-align: middle;  
-    transform-origin: 100% 100%;
+    right: 0; 
+    box-sizing: border-box; 
     overflow: hidden;
-}
-
-.menu{
+    transition: all .3s;
+    clear: both;
+ }
+ .menu{
     position: relative;
-    background-color: blue;
-    margin: 10px;
+    width: min(20vh,20vw,150px);
+    height: min(20vh,20vw,150px);
+    transition: all .3s; 
+    -webkit-clip-path: polygon(0% 100%,  100% 0%,100% 100%);
+    clip-path:polygon(0% 100%, 100% 0%,100% 100%); 
+ }
+ $icosize: calc(min(20vh,20vw,150px) * 0.4) ;
+ .menu-icon{
+    position: absolute;
+    width: $icosize;
+    height:  $icosize;
+    line-height: calc($icosize - 5px); 
+    font-size: calc($icosize / 2); ;
+    right: 10%;
+    bottom: 10%;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
     border-radius: 50%;
-    height: 10vw;
-    width: 10vw;
-    transform: translate(50%,50%);
-    transform-origin: 100% 100%;
-    transition:all 0.3s;
-    max-width: min(150vw,150vh,750px);
-    max-height:  min(150vw,150vh,750px);
-    min-width: 70px;
-    min-height: 70px;
-}
+    border: 2px solid;
+ }
+  .menu-content{
+    display: none;
+  }
+ .menu-border{        
+    transition: all .3s;
+    float: left;
+    height: 0;
+    width: 0; 
+    -webkit-clip-path: polygon(0% 100%, 50% 0%,0% 0%);
+    clip-path: polygon(0% 100%, 50% 0%,0% 0%);
 
-.menu:hover{
-  width: calc(10 *10vw);
-  height: calc(10 * 10vw);
-  min-width: 600px;
-  min-height: 600px;
-}
-
-.items-container{ 
-    position: relative; 
-    background-color:green; 
-    margin: 10px;   
-    height: 100%;
-    width: 100%;   
-    border-radius: 50%; 
-    max-width: min(150vw,150vh,750px);
-    max-height:  min(150vw,150vh,750px); 
-    transform-origin: 100% 100%;
-
-    .items {
-        position: absolute;
-        width: 30px; /* Adjust the size of the circle items as needed */
-        height: 30px;
-        background-color: red; /* Optional: Set background color for visualization */
-        border-radius: 50%; 
-        @include build-circle(305deg, 150px);
-      } 
-
-} 
+    -webkit-shape-outside: polygon(0% 100%, 50% 0%,0% 0%);
+    shape-outside: polygon(0% 100%, 50% 0%,0% 0%);
+ } 
+ .menu:hover{
+    width: max(50vw,360px) ;
+    height: 100vh; 
+    -webkit-clip-path: polygon(0% 100%, 50% 0%,100% 0%,100% 100%);
+    clip-path:polygon(0% 100%, 50% 0%,100% 0%,100% 100%);
+    background-color: aqua; 
+    .menu-border{        
+       float: left;
+       height: 100vh;
+       width:max(50vw,360px) ;
+    }
+    .link{
+        background-color: red;
+        width: 100%;
+    }
+    .menu-content{
+      display: block;
+    }
+    .menu-icon{
+        display: none;
+    }
+ }
