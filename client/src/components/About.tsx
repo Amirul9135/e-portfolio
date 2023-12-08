@@ -21,7 +21,7 @@ const About: React.FC = () => {
 
         }
         setMainPicW('0px');
-        setbgPost('center bottom -300px');  
+        setbgPost('center bottom');  
       } else { 
         if(!timeoutStarted){
           console.log('cast')
