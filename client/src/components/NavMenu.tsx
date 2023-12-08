@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NavMenu.scss'
-import profileSM from '../images/profile-img.png' 
-import Mainpage from './MainPAge'; 
+import profileSM from '../images/profile-img.png'  
   
 const NavMenu: React.FC = () => {  
     return (
@@ -15,12 +14,14 @@ const NavMenu: React.FC = () => {
                         <span style={{ '--i': 2 } as React.CSSProperties}></span>
                         <span style={{ '--i': 3 } as React.CSSProperties}></span>
                         <span style={{ '--i': 4 } as React.CSSProperties}></span>
+                        <span style={{ '--i': 5 } as React.CSSProperties}></span>
+                        <span style={{ '--i': 6 } as React.CSSProperties}></span> 
                     </div>
                 </div>
                 <div className='menu-border'>
                 </div>
                 <div className='menu-content'>
-                    <div className='menu-item' style={{ '--i': 0 } as React.CSSProperties}>
+                    <div className='menu-item conic-anim-border' style={{ '--i': 0,height:200 } as React.CSSProperties}>
                         <div className='mini-profle'>
                             <img src={profileSM} alt="" />
                             Amirul&nbsp;Asraf

@@ -16,10 +16,7 @@ const Mainpage: React.FC = () => {
         return () => {
             AOS.refresh();
         };
-    }, []);
-    const [page, setPage] = useState<string>('about');
-    const handleMenuItemClick = () => { 
-    };
+    }, []); 
     let location = useLocation();
     var currentPath = location.pathname;
     console.log(currentPath)

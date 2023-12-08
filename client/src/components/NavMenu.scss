@@ -21,6 +21,7 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
     box-sizing: border-box;
     overflow: hidden; 
     clear: both;
+    z-index: 10;
     a{
       color: $menuFG;
       text-decoration: none;
@@ -34,8 +35,6 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
     z-index: 10; 
     overflow: hidden;
  }
-
-
 
  .menu-icon {
     position: absolute;
@@ -167,6 +166,9 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
           i {
              opacity: 1;
              animation: pulseAnimate .8s ease-out infinite, colorRotate .4s linear infinite;
+             &:hover{
+               animation: initial-state 0s;
+             }
           }
        }
        .mini-profle{
@@ -175,23 +177,19 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
     }
     .mini-profle{  
       text-align: left;
+      vertical-align: middle;
       position: relative; 
       padding: 10px;
-      background-color: $menuBG; 
-      border-bottom: solid 2px $menuFG;
+      background-color: $menuBG;  
       transition: all .3s;
       img{   
-         margin: 10px;
-         top: 10px;
+         margin: 10px; 
          left: 0;
-         width: 100px;
-         height: 100px;
-         object-fit: cover; 
-         shape-outside: circle(50%);
-         -webkit-shape-outside: circle(50%); 
+         width: 110px;
+         height: 110px;
+         object-fit: cover;  
          outline: 5px solid $menuFG;  
-         border-radius: 50%;  
-         box-sizing: border-box; 
+         border-radius: 50%;   
       }
 
     }
@@ -278,3 +276,9 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
    }
 }
  
+
+.conic-anim-border{ 
+   border: 2px solid; 
+   border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30; 
+   animation: borderRotate 1s linear infinite forwards;
+}
