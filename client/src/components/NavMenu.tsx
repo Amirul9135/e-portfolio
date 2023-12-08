@@ -1,43 +1,67 @@
 import React, { useState } from 'react';
-import './NavMenu.scss'  
-
-const NavMenu: React.FC = () => {
-    const [isVisible, setIsVisible] = useState(true);
-    const handleToggle = (shouldShow: boolean) => {
-        setIsVisible(shouldShow);
-    }; 
+import { Link } from 'react-router-dom';
+import './NavMenu.scss'
+import profileSM from '../images/profile-img.png' 
+import Mainpage from './MainPAge'; 
+  
+const NavMenu: React.FC = () => {  
     return (
         <div className='menu-base'>
-            <div className='menu'>  
+            <div className='menu'>
                 <div className='menu-icon'>
-                    <div  className="main-icon fa fa-bars"> 
-                    <span  style={{ '--i': 0 } as React.CSSProperties}></span>
-                    <span  style={{ '--i': 1 } as React.CSSProperties}></span>
-                    <span  style={{ '--i': 2 } as React.CSSProperties}></span>
-                    <span  style={{ '--i': 3 } as React.CSSProperties}></span>
-                    <span  style={{ '--i': 4 } as React.CSSProperties}></span>
-                    </div> 
+                    <div className="main-icon fa fa-bars">
+                        <span style={{ '--i': 0 } as React.CSSProperties}></span>
+                        <span style={{ '--i': 1 } as React.CSSProperties}></span>
+                        <span style={{ '--i': 2 } as React.CSSProperties}></span>
+                        <span style={{ '--i': 3 } as React.CSSProperties}></span>
+                        <span style={{ '--i': 4 } as React.CSSProperties}></span>
+                    </div>
                 </div>
                 <div className='menu-border'>
                 </div>
                 <div className='menu-content'>
-                    <div className='menu-item'>
-                    <i className="fa fa-home" aria-hidden="true"><i className="fa fa-home" aria-hidden="true"></i></i>WELCOME
+                    <div className='menu-item' style={{ '--i': 0 } as React.CSSProperties}>
+                        <div className='mini-profle'>
+                            <img src={profileSM} alt="" />
+                            Amirul&nbsp;Asraf
+                        </div>
+                    </div>  
+                    <Link to={'/about'}>
+                    <div className='menu-item clickable' style={{ '--i': 1 } as React.CSSProperties}>
+                        <span>ABOUT</span><i className="fa fa-user-circle-o" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i>
+                    </div>  
+
+                    </Link>
+                    <Link to={'/background'}>
+                    <div className='menu-item clickable' style={{ '--i': 2 } as React.CSSProperties}>
+                        <span>BACKGROUND</span><i className="fa fa-sliders" aria-hidden="true"><i className="fa fa-sliders" aria-hidden="true"></i></i>
+                    </div> 
+                    </Link>
+                    <Link to={'/skill'}>
+                        
+                    <div className='menu-item clickable' style={{ '--i': 3 } as React.CSSProperties} >
+                        <span>SKILLS</span><i className="fa fa-code" aria-hidden="true"><i className="fa fa-code" aria-hidden="true"></i></i>
                     </div>
-                    <div className='menu-item'>
-                    <i className="fa fa-user" aria-hidden="true"><i className="fa fa-user" aria-hidden="true"></i></i>ABOUT
+                    </Link>
+                    <Link to={'/projects'}>
+                        <div className='menu-item clickable' style={{ '--i': 4 } as React.CSSProperties} >
+                            <span>PROJECTS</span><i className="fa fa-clone" aria-hidden="true"><i className="fa fa-clone" aria-hidden="true"></i></i>
+                        </div>
+                    </Link>
+                    <div className='menu-item' style={{ '--i': 5 } as React.CSSProperties}>
+                        <span>CONTACTS</span>
+                        <a href='tel:+601133037857'><i className="fa fa-phone clickable" aria-hidden="true"><i className="fa fa-phone" aria-hidden="true"></i></i></a>
+                        <a href='https://wa.me/+601133037857?text=Hello%20Amirul' target='_blank'><i className="fa fa-whatsapp clickable" aria-hidden="true"><i className="fa fa-whatsapp" aria-hidden="true"></i></i></a> 
+                       <a href='mailto:amirul.asraf9135@gmail.com'> <i className="fa fa-envelope-o clickable" aria-hidden="true"><i className="fa fa-envelope-o" aria-hidden="true"></i></i></a>
                     </div>
-                    <div className='menu-item'>
-                    <i className="fa fa-sliders" aria-hidden="true"><i className="fa fa-sliders" aria-hidden="true"></i></i>HISTORY
+                    <div className='menu-item' style={{ '--i': 6 } as React.CSSProperties}>
+                        <span>FIND ME</span>
+                        <a href='https://www.linkedin.com/in/amirul-asmf/' target='_blank'><i className="fa fa-linkedin-square clickable" aria-hidden="true"><i className="fa fa-linkedin-square" aria-hidden="true"></i></i></a>
+                        <a href='https://github.com/Amirul9135' target='_blank'><i className="fa fa-github-square clickable" aria-hidden="true"><i className="fa fa-github-square" aria-hidden="true"></i></i></a>
                     </div>
-                    <div className='menu-item'>
-                    <i className="fa fa-code" aria-hidden="true"><i className="fa fa-code" aria-hidden="true"></i></i>SKILLS
+                    <div className='menu-item menu-bottom' style={{ '--i': 7 } as React.CSSProperties}>
                     </div>
-                    <div className='menu-item'>
-                    <i className="fa fa-clone" aria-hidden="true"><i className="fa fa-clone" aria-hidden="true"></i></i>PROJECTS
-                    </div>
-                   
-                </div> 
+                </div>
             </div>
         </div>
     )

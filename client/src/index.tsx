@@ -1,27 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css'; 
+import ReactDOM from 'react-dom/client'; 
 import reportWebVitals from './reportWebVitals';
-import Mainpage from './main'
-import NavMenu from './components/NavMenu';
+import Mainpage from './components/MainPAge' 
 
 
 import "../node_modules/font-awesome/css/font-awesome.min.css"
 
-import "../node_modules/bootstrap/dist/css/bootstrap.css" 
-import "../node_modules/bootstrap/dist/js/bootstrap.js"   
-import "../node_modules/aos/dist/aos.js"
-import "../node_modules/aos/dist/aos.css" 
-import './style.css'
+import "../node_modules/bootstrap/dist/css/bootstrap.css"
+import "../node_modules/bootstrap/dist/js/bootstrap.js"
+ 
 
+import './style.scss'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import WIP from './components/WIP';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render( 
-  <React.StrictMode> 
-    <Mainpage></Mainpage>
-    <NavMenu></NavMenu>
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes> 
+        <Route path="*" element={<Mainpage />} />
+      </Routes> 
+    </BrowserRouter>
   </React.StrictMode>
 );
 
