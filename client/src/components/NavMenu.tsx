@@ -33,7 +33,7 @@ const NavMenu: React.FC = () => {
         if(offset.x < -(sensitivityThreshold)){
             document.getElementById('menu')?.classList.add('menu-show');
         }
-    }
+    } 
   }
   document.addEventListener('touchstart',touchStart);
   document.addEventListener('touchend',touchEnd)

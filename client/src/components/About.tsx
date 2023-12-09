@@ -9,19 +9,28 @@ const About: React.FC = () => {
   const [bgPost, setbgPost] = useState<string>('center top'); 
   let timeoutId:NodeJS.Timeout
   let timeoutStarted = false;
+  let fullHeader = true; 
+  let scrolling = false;
   useEffect(() => {
     const handleScroll = () => {  
-      
+      if(!scrolling){
+        scrolling = true;
+        
       const scrollPosition = window.scrollY || document.documentElement.scrollTop;
       console.log(scrollPosition)
-      if (scrollPosition > 100) { 
+      if (scrollPosition > 50) { 
         if(timeoutStarted){
           timeoutStarted = false;
           clearTimeout(timeoutId)
 
         }
-        setMainPicW('0px');
-        setbgPost('center bottom');  
+        if(fullHeader){
+          fullHeader = false;
+          setMainPicW('0px');
+          setbgPost('center bottom');  
+          document.documentElement.scrollTop = 51;
+        }
+        scrolling = false;
       } else { 
         if(!timeoutStarted){
           console.log('cast')
@@ -34,15 +43,19 @@ const About: React.FC = () => {
               console.log('apply')
               setMainPicW('100vh');
               setbgPost('center top');
+              fullHeader = true;
             }
             else{
               console.log('cancel')
             }
             timeoutStarted = false;
+            scrolling = false;
           }, 500); 
         } 
         
       }
+      }
+      
     };
 
     window.addEventListener('scroll', handleScroll);
