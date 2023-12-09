@@ -21,11 +21,18 @@ const NavMenu: React.FC = () => {
     offset.x = start.x - event.changedTouches[0].pageX;
     offset.y = start.y - event.changedTouches[0].pageY;
     console.log(offset.x)
-    if(offset.x < 10){
-        document.getElementById('menu')?.classList.add('menu-show');
+    let sensitivityThreshold = window.innerWidth * 0.5; 
+    console.log(sensitivityThreshold)
+    //kanan negative
+    if(offset.x > 0){
+        if(offset.x > sensitivityThreshold){
+            document.getElementById('menu')?.classList.remove('menu-show');
+        }
     }
-    if(offset.x > 10){
-        document.getElementById('menu')?.classList.remove('menu-show');
+    else{
+        if(offset.x < -(sensitivityThreshold)){
+            document.getElementById('menu')?.classList.add('menu-show');
+        }
     }
   }
   document.addEventListener('touchstart',touchStart);
@@ -33,7 +40,7 @@ const NavMenu: React.FC = () => {
     return (
         <div className='menu-base'>
             <div id='menu' className={`menu ${visible? 'menu-show':''} `}>
-                <div className='menu-overlay'>
+                <div className='menu-overlay' onClick={()=>toggleMenu(false)}>
 
                 </div>
                 <div className='menu-icon'  onMouseEnter={()=>toggleMenu(true)} onClick={()=>toggleMenu(true)}>
