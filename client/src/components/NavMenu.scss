@@ -118,6 +118,7 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
 .menu-overlay{  
    display: block;
    position: absolute; 
+   box-sizing: content-box;
    transition: all .5s;
    background-color: black;
    opacity: 0;

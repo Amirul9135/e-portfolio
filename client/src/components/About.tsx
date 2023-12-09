@@ -45,11 +45,10 @@ const About: React.FC = () => {
   }, [headerFull]);
   return (
     <React.Fragment>
-      <section id="hero" className={`conic-anim-border d-flex flex-column justify-content-center align-items-center ${headerFull ? 'header-full' : 'header-min'}`}>
+      <section id="hero" className={`conic-anim-border d-flex flex-column justify-content-end align-items-center ${headerFull ? 'header-full' : 'header-min'}`}>
         <div className="hero-container" data-aos="fade-in"  >
           <h1>Amirul Asraf</h1>
-          <div className="morphing">
-            I'm
+          <div className="morphing"> 
             <div className="word">Software Developer</div>
             <div className="word">Bachelor Degree Student</div>
           </div>

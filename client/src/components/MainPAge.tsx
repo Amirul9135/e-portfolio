@@ -8,21 +8,29 @@ import WIP from './WIP';
 import { useLocation } from 'react-router-dom';
 
 
-const Mainpage: React.FC = () => {
+const Mainpage: React.FC = () => { 
+    let location = useLocation();
+    var currentPath = location.pathname;
+    if(currentPath === '/' || currentPath === ''){
+        currentPath = '/About'
+    } 
     useEffect(() => {
         initializeAOS();
-
+        if(currentPath = '/About'){
+            document.title = "Amirul Asraf" 
+        }
+        else{
+            document.title = "Amirul's" + currentPath.replace('/',' ');
+        }
+        
         // Optionally return a cleanup function if needed
         return () => {
             AOS.refresh();
         };
     }, []); 
-    let location = useLocation();
-    var currentPath = location.pathname;
-    console.log(currentPath)
     return (
         <React.Fragment>
-            {(currentPath === '/about' || currentPath === '/' || currentPath === '') ? (
+            {(currentPath === '/About') ? (
                 <About />
             ) : (
                 <WIP/> 

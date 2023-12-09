@@ -63,24 +63,24 @@ const NavMenu: React.FC = () => {
                             Amirul&nbsp;Asraf
                         </div>
                     </div>  
-                    <Link to={'/about'}>
+                    <Link to={'/About'}>
                     <div className='menu-item clickable' style={{ '--i': 1 } as React.CSSProperties}>
                         <span>ABOUT</span><i className="fa fa-user-circle-o" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i>
                     </div>  
 
                     </Link>
-                    <Link to={'/background'}>
+                    <Link to={'/Backgrounds'}>
                     <div className='menu-item clickable' style={{ '--i': 2 } as React.CSSProperties}>
                         <span>BACKGROUND</span><i className="fa fa-sliders" aria-hidden="true"><i className="fa fa-sliders" aria-hidden="true"></i></i>
                     </div> 
                     </Link>
-                    <Link to={'/skill'}>
+                    <Link to={'/Skills'}>
                         
                     <div className='menu-item clickable' style={{ '--i': 3 } as React.CSSProperties} >
                         <span>SKILLS</span><i className="fa fa-code" aria-hidden="true"><i className="fa fa-code" aria-hidden="true"></i></i>
                     </div>
                     </Link>
-                    <Link to={'/projects'}>
+                    <Link to={'/Projects'}>
                         <div className='menu-item clickable' style={{ '--i': 4 } as React.CSSProperties} >
                             <span>PROJECTS</span><i className="fa fa-clone" aria-hidden="true"><i className="fa fa-clone" aria-hidden="true"></i></i>
                         </div>
