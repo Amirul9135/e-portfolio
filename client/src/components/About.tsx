@@ -4,30 +4,28 @@ import React, { useEffect, useState, } from 'react';
 
 
 const About: React.FC = () => {
-
-  const [mainPicW, setMainPicW] = useState<string>('100vh');
-  const [bgPost, setbgPost] = useState<string>('center top'); 
+  const [headerFull, setHeaderFull] = useState<boolean>(true); 
   let timeoutId:NodeJS.Timeout
   let timeoutStarted = false;
-  let fullHeader = true; 
+//  let fullHeader = true; 
   let scrolling = false;
   useEffect(() => {
     const handleScroll = () => {  
+      
+      let windowHeight = window.innerHeight - 200; 
       if(!scrolling){
         scrolling = true;
         
       const scrollPosition = window.scrollY || document.documentElement.scrollTop;
       console.log(scrollPosition)
-      if (scrollPosition > 50) { 
+      if (scrollPosition > windowHeight) { 
         if(timeoutStarted){
           timeoutStarted = false;
           clearTimeout(timeoutId)
 
         }
-        if(fullHeader){
-          fullHeader = false;
-          setMainPicW('0px');
-          setbgPost('center bottom');  
+        if(headerFull){ 
+          setHeaderFull(false)  
           document.documentElement.scrollTop = 51;
         }
         scrolling = false;
@@ -41,9 +39,7 @@ const About: React.FC = () => {
             let sp = window.scrollY || document.documentElement.scrollTop;
             if(sp < 20){
               console.log('apply')
-              setMainPicW('100vh');
-              setbgPost('center top');
-              fullHeader = true;
+              setHeaderFull(true); 
             }
             else{
               console.log('cancel')
@@ -68,7 +64,7 @@ const About: React.FC = () => {
   }, []);
   return (
     <React.Fragment>
-      <section style={{ height: mainPicW, backgroundPosition: bgPost }} id="hero" className="conic-anim-border d-flex flex-column justify-content-center align-items-center" data-aos="fade-in" >
+      <section  id="hero" className={`conic-anim-border d-flex flex-column justify-content-center align-items-center ${headerFull?'header-full':'header-min'}`}   >
         <div className="hero-container" data-aos="fade-in">
           <h1>Amirul Asraf</h1>
           <div className="morphing">

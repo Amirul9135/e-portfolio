@@ -22,7 +22,7 @@ const Mainpage: React.FC = () => {
     console.log(currentPath)
     return (
         <React.Fragment>
-            {currentPath === '/about' ? (
+            {(currentPath === '/about' || currentPath === '/' || currentPath === '') ? (
                 <About />
             ) : (
                 <WIP/> 

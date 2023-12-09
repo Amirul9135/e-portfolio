@@ -5,7 +5,7 @@ import profileSM from '../images/profile-img.png'
   
 const NavMenu: React.FC = () => {  
     
-  const [visible, setVisible] = useState<boolean>(true);
+  const [visible, setVisible] = useState<boolean>(false);
   const toggleMenu = (val:boolean)=>{
     setVisible(val)
   }
