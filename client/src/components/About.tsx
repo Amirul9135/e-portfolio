@@ -4,68 +4,49 @@ import React, { useEffect, useState, } from 'react';
 
 
 const About: React.FC = () => {
-  const [headerFull, setHeaderFull] = useState<boolean>(true); 
-  let timeoutId:NodeJS.Timeout
-  let timeoutStarted = false;
-//  let fullHeader = true; 
-  let scrolling = false;
+  const [headerFull, setHeaderFull] = useState<boolean>(true);
+
+
+
   useEffect(() => {
-    const handleScroll = () => {  
-      
-      let windowHeight = window.innerHeight - 200; 
-      if(!scrolling){
-        scrolling = true;
-        
-      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    const handleScroll = () => {
+
+      let scrollPosition = document.documentElement.scrollTop || window.scrollY;
       console.log(scrollPosition)
-      if (scrollPosition > windowHeight) { 
-        if(timeoutStarted){
-          timeoutStarted = false;
-          clearTimeout(timeoutId)
-
+      console.log(headerFull)
+      if (scrollPosition > 0 && headerFull) {
+        //min-height:  min(200px,20vh);  
+        let changedh = window.innerHeight - Math.min(window.innerHeight * 0.2, 200);
+        console.log('cg', changedh)
+        if(document.documentElement.scrollTop){
+          document.documentElement.scrollTop = ((scrollPosition - changedh) < 1) ? 1 : scrollPosition - changedh
         }
-        if(headerFull){ 
-          setHeaderFull(false)  
-          document.documentElement.scrollTop = 51;
-        }
-        scrolling = false;
-      } else { 
-        if(!timeoutStarted){
-          console.log('cast')
-          timeoutStarted = true;
-          document.documentElement.scrollTop = 30;
-          window.screenY = 30;
-          timeoutId= setTimeout(() => {
-            let sp = window.scrollY || document.documentElement.scrollTop;
-            if(sp < 20){
-              console.log('apply')
-              setHeaderFull(true); 
-            }
-            else{
-              console.log('cancel')
-            }
-            timeoutStarted = false;
-            scrolling = false;
-          }, 500); 
+        else if(window.scrollY){
+          window.scrollY =((scrollPosition - changedh) < 1) ? 1 :  scrollPosition - changedh
         } 
-        
+        //+1 prevent hitting 0
+        setHeaderFull(false)
+      } else if (scrollPosition === 0 && !headerFull) {
+        setHeaderFull(true)
       }
-      }
-      
-    };
+    }
+    const scrollStart = () => {
 
-    window.addEventListener('scroll', handleScroll);
+    }
+
+
+    window.addEventListener('scrollend', handleScroll);
 
     // Cleanup function
     return () => {
       // Remove the scroll event listener when the component unmounts 
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scrollend', handleScroll);
     };
-  }, []);
+  }, [headerFull]);
   return (
     <React.Fragment>
-      <section  id="hero" className={`conic-anim-border d-flex flex-column justify-content-center align-items-center ${headerFull?'header-full':'header-min'}`}   >
-        <div className="hero-container" data-aos="fade-in">
+      <section id="hero" className={`conic-anim-border d-flex flex-column justify-content-center align-items-center ${headerFull ? 'header-full' : 'header-min'}`}>
+        <div className="hero-container" data-aos="fade-in"  >
           <h1>Amirul Asraf</h1>
           <div className="morphing">
             I'm
