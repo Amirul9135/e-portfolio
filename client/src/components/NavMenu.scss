@@ -1,6 +1,6 @@
 
 :root {
-	--d: 2500ms;
+	--d: 1000ms;
 	--angle: 90deg;
 	--gradX: 100%;
 	--gradY: 50%;
@@ -19,7 +19,6 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
     top: 0;
     left: 0;
     box-sizing: border-box;
-    overflow: hidden; 
     clear: both;
     z-index: 10;
     a{
@@ -29,34 +28,29 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
  }
 
  .menu {
-    position: relative;
-    width: min(20vh, 20vw, 150px);
-    height: min(20vh, 20vw, 150px);
-    z-index: 10; 
-    overflow: hidden;
+    position: relative; 
+    z-index: 10;  
  }
 
  .menu-icon {
-    position: absolute;
-    left: 10%;
-    top: 10%;
+    position: relative; 
     text-align: center;
     vertical-align: middle;
     animation: colorRotate 8s linear infinite;
     color: yellow;
-
-    div {
-       position: relative;
-    }
-
+    width: calc($icosize * 1.5);
+    height: calc($icosize * 1.5);
+ 
     .main-icon {
-       position: relative;
+       position: absolute;
        border-radius: 50%;
        border: 2px solid;
        width: $icosize;
        height: $icosize;
        line-height: calc($icosize - 5px);
        font-size: calc($icosize / 2);
+       left: 10px;
+       top: 10px;
 
        span {
           top: 0;
@@ -75,9 +69,12 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
  }
 
  .menu-content {
-    position: relative;
-    display: none;
+    position: relative; 
     z-index: 10;  
+    width: 0px;
+    transition: all .5s;
+    -webkit-clip-path: polygon(0% 0%, 60% 0%, 100% 100%, 0% 100%,0% 0%);
+    clip-path: polygon(0% 0%, 60% 0%, 100% 100%, 0% 100%,0% 0%);
  }
 
  .menu-border { 
@@ -88,31 +85,54 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
     clip-path:  polygon(60% 0%, 100% 100%, 100% 0%);
     -webkit-shape-outside: polygon(60% 0%, 100% 100%, 100% 0%);
     shape-outside:  polygon(60% 0%, 100% 100%, 100% 0%);
+    transition: all .5s; 
  }
-.menu-item{  
+.menu-item{   
    transform-origin: left; 
    transform: scaleX(0); 
    border-bottom: 50% solid black;
    color: $menuFG;
    text-align: right;
    background-color: $menuBG; 
+   transition: transform .2s;
+   transition-delay: calc(.1s * var(--i));
 }
 .menu-bottom{
    height: 100vh;
    text-align: left;
 }
- .menu:hover {
-    width: $menuWidht;
-    height: 100vh;
-    -webkit-clip-path: polygon(0% 0%, 60% 0%, 100% 100%, 0% 100%,0% 0%);
-    clip-path: polygon(0% 0%, 60% 0%, 100% 100%, 0% 100%,0% 0%);
+.mini-profle{
+   img{
+      margin: 10px; 
+      left: 0;
+      width: 110px;
+      height: 110px;
+      object-fit: cover;  
+      outline: 5px solid $menuFG;  
+      border-radius: 50%;   
+      opacity: 0;
+      transition: all 1s;
+      transform-origin: left;
+   }
+}
+.menu-overlay{  
+   transition: all .5s;
+   background-color: black;
+   opacity: 0;
+}
+.menu-show {
     z-index: 1;
-
+      .menu-overlay{
+         height: 100vh;
+         width: 100vw;
+         display: block;
+         position: absolute; 
+         opacity: .3;
+      }
     .menu-border {
        float: right;
        height: 100vh;
-       width: $menuWidht;
-       opacity: 0; 
+       width: $menuWidht;  
     }
 
     .menu-item::before {
@@ -126,12 +146,10 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
       z-index: -1; /* Place the dashed line behind the text and icon */
     }
     .menu-item {  
-      padding-right: 10px; 
-       width: 100%;
+      padding-right: 10px;  
        font-size: x-large; 
        padding: 10px;  
-       animation: scaleXExpand .3s ease-in-out forwards;
-       animation-delay: calc(.1s * var(--i));
+       transform: scaleX(1);
        i { 
           position: relative; 
           padding: 10px;
@@ -158,9 +176,10 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
     }
 
     .menu-item:hover {  
+      transition-delay: 0;
       border: 2px solid; 
       border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30; 
-      animation: scaleXExpand .3s ease-in-out forwards,borderRotate var(--d) linear infinite forwards;
+      animation: borderRotate var(--d) linear infinite forwards;
        i {
           i {
              opacity: 1;
@@ -182,13 +201,7 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
       background-color: $menuBG;  
       transition: all .3s;
       img{   
-         margin: 10px; 
-         left: 0;
-         width: 110px;
-         height: 110px;
-         object-fit: cover;  
-         outline: 5px solid $menuFG;  
-         border-radius: 50%;   
+         opacity: 1;
       }
 
     }
@@ -198,7 +211,8 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
       bottom: 0;
     }
     .menu-content {
-       display: block; 
+      width: $menuWidht;
+      height: 100vh;
     }
 
     .menu-icon {
@@ -279,5 +293,5 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
 .conic-anim-border{ 
    border: 2px solid; 
    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30; 
-   animation: borderRotate 1s linear infinite forwards;
+
 }

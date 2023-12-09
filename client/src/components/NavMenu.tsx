@@ -4,10 +4,39 @@ import './NavMenu.scss'
 import profileSM from '../images/profile-img.png'  
   
 const NavMenu: React.FC = () => {  
+    
+  const [visible, setVisible] = useState<boolean>(true);
+  const toggleMenu = (val:boolean)=>{
+    setVisible(val)
+  }
+  var start = {x:0, y:0};
+  function touchStart(event:TouchEvent) {
+    start.x = event.changedTouches[0].pageX;
+    start.y = event.changedTouches[0].pageY;
+  }
+  
+  function touchEnd(event:TouchEvent) {
+    let offset = {x:0, y:0};
+  
+    offset.x = start.x - event.changedTouches[0].pageX;
+    offset.y = start.y - event.changedTouches[0].pageY;
+    console.log(offset.x)
+    if(offset.x < 10){
+        document.getElementById('menu')?.classList.add('menu-show');
+    }
+    if(offset.x > 10){
+        document.getElementById('menu')?.classList.remove('menu-show');
+    }
+  }
+  document.addEventListener('touchstart',touchStart);
+  document.addEventListener('touchend',touchEnd)
     return (
         <div className='menu-base'>
-            <div className='menu'>
-                <div className='menu-icon'>
+            <div id='menu' className={`menu ${visible? 'menu-show':''} `}>
+                <div className='menu-overlay'>
+
+                </div>
+                <div className='menu-icon'  onMouseEnter={()=>toggleMenu(true)} onClick={()=>toggleMenu(true)}>
                     <div className="main-icon fa fa-bars">
                         <span style={{ '--i': 0 } as React.CSSProperties}></span>
                         <span style={{ '--i': 1 } as React.CSSProperties}></span>
@@ -18,10 +47,10 @@ const NavMenu: React.FC = () => {
                         <span style={{ '--i': 6 } as React.CSSProperties}></span> 
                     </div>
                 </div>
-                <div className='menu-border'>
+                <div className='menu-border' onMouseEnter={()=>toggleMenu(false)} onClick={()=>toggleMenu(false)}>
                 </div>
                 <div className='menu-content'>
-                    <div className='menu-item conic-anim-border' style={{ '--i': 0,height:200 } as React.CSSProperties}>
+                    <div className='menu-item' style={{ '--i': 0,height:200 } as React.CSSProperties}>
                         <div className='mini-profle'>
                             <img src={profileSM} alt="" />
                             Amirul&nbsp;Asraf
