@@ -1,6 +1,7 @@
 /*General styles*/
+$mainBg: #112e55;
 body{
-    background-color: #112e55;
+    background-color: $mainBg;
     color: white;
     overflow-x: hidden; 
 }
@@ -8,7 +9,11 @@ body{
 .clickable{
     cursor: pointer;
 }
-
+.justify{
+  
+  text-align: justify;
+  text-justify: inter-word;
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -76,6 +81,7 @@ body{
     font-size: 2vmin !important;     
   }
 }
+
 /*--------------------------------------------------------------
 # Hero Section END
 --------------------------------------------------------------*/
@@ -128,4 +134,112 @@ $wordCount: 2;
   border: 2px solid; 
   border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30; 
   animation: borderRotate 1s linear infinite forwards;
+}
+
+.sect-title{
+  position: relative;  
+  margin-top: 2vmax;
+  margin-bottom: 1vmax;
+  h2{
+    display: inline-block;
+    background-color: $mainBg; 
+    padding-right: 10px; 
+    div{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.sect-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0; 
+  opacity: .5;
+  z-index: -1; /* Place the dashed line behind the text and icon */
+  border-bottom: 2px dashed white; /* Adjust the style of the dashed line */
+}
+
+
+//////////////////
+/// about
+/// ////////////////
+#about > div{
+  width: 80vw;
+  padding: 1vw;
+  margin: auto;
+}
+
+#profile2{    
+  float: left;
+  border-radius: 20%; 
+  width: 30vmin;
+  height: 30vmin;
+  margin: 10px;
+  margin-right: 5vw;
+}
+
+//
+// Timline
+//
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+}
+ul.timeline:before {
+  content: ' ';
+  background: #d4d9df;
+  display: inline-block;
+  position: absolute;
+  left: 29px;
+  width: 2px;
+  height: 100%;
+  z-index: 400;
+}
+ul.timeline > li {
+  margin: 20px 0;
+  padding-left: 30px;
+  p:not(.timerange){
+    text-align: justify;
+    margin-left: 20px;
+  }
+}
+ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #22c0e8;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
+
+
+.glowIcon{
+  position: relative;
+  i{ 
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 1;
+    animation: pulseAnimate .8s ease-out infinite, colorRotate .4s linear infinite;
+  }
+}
+@keyframes pulseAnimate {
+  100% {
+     opacity: 0;
+     transform: scale(1.5);
+  }
+}
+
+@keyframes colorRotate {
+  100% {
+     filter: hue-rotate(360deg);
+  }
 }

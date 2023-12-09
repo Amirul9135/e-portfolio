@@ -11,17 +11,19 @@ import { useLocation } from 'react-router-dom';
 const Mainpage: React.FC = () => { 
     let location = useLocation();
     var currentPath = location.pathname;
+    console.log(currentPath)
     if(currentPath === '/' || currentPath === ''){
         currentPath = '/About'
     } 
+    if(currentPath == '/About'){
+        document.title = "Amirul Asraf" 
+    }
+    else{
+        document.title = "Amirul's" + currentPath.replace('/',' ');
+    }
+    console.log(currentPath)
     useEffect(() => {
         initializeAOS();
-        if(currentPath = '/About'){
-            document.title = "Amirul Asraf" 
-        }
-        else{
-            document.title = "Amirul's" + currentPath.replace('/',' ');
-        }
         
         // Optionally return a cleanup function if needed
         return () => {

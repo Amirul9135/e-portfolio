@@ -1,11 +1,11 @@
 
 
 import React, { useEffect, useState, } from 'react';
-
+import profImg2 from '../images/profile-img2.png'
 
 const About: React.FC = () => {
   const [headerFull, setHeaderFull] = useState<boolean>(true);
-
+  let age = (new Date()).getFullYear() - 1999
 
 
   useEffect(() => {
@@ -18,12 +18,12 @@ const About: React.FC = () => {
         //min-height:  min(200px,20vh);  
         let changedh = window.innerHeight - Math.min(window.innerHeight * 0.2, 200);
         console.log('cg', changedh)
-        if(document.documentElement.scrollTop){
+        if (document.documentElement.scrollTop) {
           document.documentElement.scrollTop = ((scrollPosition - changedh) < 1) ? 1 : scrollPosition - changedh
         }
-        else if(window.scrollY){
-          window.scrollY =((scrollPosition - changedh) < 1) ? 1 :  scrollPosition - changedh
-        } 
+        else if (window.scrollY) {
+          window.scrollY = ((scrollPosition - changedh) < 1) ? 1 : scrollPosition - changedh
+        }
         //+1 prevent hitting 0
         setHeaderFull(false)
       } else if (scrollPosition === 0 && !headerFull) {
@@ -48,665 +48,59 @@ const About: React.FC = () => {
       <section id="hero" className={`conic-anim-border d-flex flex-column justify-content-end align-items-center ${headerFull ? 'header-full' : 'header-min'}`}>
         <div className="hero-container" data-aos="fade-in"  >
           <h1>Amirul Asraf</h1>
-          <div className="morphing"> 
+          <div className="morphing">
             <div className="word">Software Developer</div>
             <div className="word">Bachelor Degree Student</div>
           </div>
         </div>
       </section>
       <section id="about" className="about" data-aos="zoom-in">
-        <div className="container">
+        <div id='whoami' className='row'>
+          <div className='sect-title'><h2>Who Am I<div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
+          <div> 
+            <img id='profile2' src={profImg2} />   
 
-          <div className="section-title">
-            <h2><i className="bi bi-person-fill"></i>&nbsp;&nbsp;About</h2>
-            <p>I'm Muhammad Amirul Asraf bin Mustafa a Bachelor of Computer Science (Software Development) student
-              currently on my 3rd year of study. I aspire to be an excellent software devloper capable of developing
-              innovative software solution</p>
-          </div>
+            <p className='justify'>Hello, I’m Muhammad Amirul Asraf bin Mustafa currently a bachelor’s degree student currently going through my final year in my computer science degree specializing in software development. Programming and development is my passion. Towards the end of my degree, I am now looking forward to experiencing my internship and then starting my career in the industry.
+              This page is a little self-indulgent, it’s all about me. Hopefully you’ll find it interesting though.
+            </p>  
 
-          <div className="row">
-            <div className="col-lg-4" data-aos="fade-right">
-              <img src="assets/img/profile-img2.png" className="img-fluid" alt="" />
-            </div>
-            <div className="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-              <h3>Computer Science (Software Development) Student</h3>
-              <div className="row">
-                <div className="col-lg-6">
-                  <ul>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>18 December 1999</span></li>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Language:</strong> <span>Malay, English</span></li>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>011-33037857</span></li>
-                  </ul>
-                </div>
-                <div className="col-lg-6">
-                  <ul>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="myAge">30</span></li>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Nationality:</strong> <span>Malaysian</span></li>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong>
-                      <span>amirul.asraf9135@gmail.com</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p>
-                My passion for software development, especially programming starts from my highschool days. I enjoy
-                playing
-                games alot which makes me curious on how does it work and how was it created. Sparked from my curiosity, I
-                started to dip into the field by a little bit of editing game contents and programming game bots. On 2017
-                after finishing my highschool, I decided to pursue my passion professionally and my first step was
-                enrolling into information technology diploma course. Now, I am 3rd year bachelor degree student, very
-                close
-                to fulfilling my dream to be a software developer
-              </p>
-            </div>
           </div>
+        </div>
+        <div id='facts' className='row'>
+          
+        <div className='sect-title'><h2>Quick Facts About Me<div><i className="fa fa-question-circle glowIcon" aria-hidden="true"><i className="fa fa-question-circle" aria-hidden="true"></i></i></div></h2></div>
+        <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
+        <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I got diploma in information technology from UTHM, Johor in 2020.</p>
+        <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm in my final year of degree in Computer Science(Software Development) at UTEM, Melaka.</p>
+        <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm also working as part time programmer in Pusat Perkhidmatan Pengetahuan Dan Komunikasi, UTEM.</p>
+        <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for my upcoming internship placement in March 2024.</p>
+        </div>
+        <div id='journey' className='row'>
+
+          <div className='sect-title'><h2>My Journey<div><i className="fa fa-share-alt-square glowIcon" aria-hidden="true"><i className="fa fa-share-alt-square" aria-hidden="true"></i></i></div></h2></div>
+          <ul className="timeline">
+            <li>
+              <p className='timerange'>1999 - 2011</p>
+              <p>Born in December 1999 I was raised in my hometown Kampung Bukit Kuching, Selangor. I don’t really have particular goal back then, going to my primary school only because it is normal thing to do and encouraged by my family like most kids do. But after my UPSR which was my first big examination, I managed to pass with flying colors and got straight A, it was life changing experience seeing how happy my family especially my mom was. It motivates me even more to study harder.</p>
+            </li>
+            <li>
+              <p className='timerange'>2012 - 2016</p>
+              <p>Throughout my highschool days I started to grow closer toward computers. Starting from simply gaming (quite a lot) onmy brothers' laptop, around 15 years old I have access to my own laptop which allows me to explore more. I also participated in the Iltizam team which responsible in designing my school yearbooks. The first thing closest to programming that I tried was creating custom maps for Warcraft 3 for fun. As I play more game, my curiosity also grew at some point I started to create bots to automate gameplay using actual programming language</p>
+            </li>
+            <li>
+              <p className='timerange'>2017 - 2020</p>
+              <p>Since I spent a lot of time with computer and also likes logical things such as programming, math etc. I decided to pursue my passion in IT by enrolling to UTHM in Johor for my diploma at 2017. It was a very new experience to me as it was my first time living away from my family but it was very statisfying and throughout my studies I was really glad for choosing to further my study in this IT field which have limitless potential.</p>
+            </li>
+            <li>
+              <p className='timerange'>2021 - Now</p>
+              <p>My original plan was to continue my study in 2020 right after graduating from diploma which was delayed due to the global pandemic. At september 2021 I enrolled to UTEM at Melaka to further my study in Computer Science specializing in Software Development until today. I met lot of friends and great lecturer at UTEM. During my third year of study, I was blessed with the oppoturnity to work as a part time programmer at the UTEM information office.</p>
+            </li>
+          </ul>
 
         </div>
+
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
     </React.Fragment>
   );
 };
