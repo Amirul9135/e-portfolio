@@ -186,6 +186,7 @@ $wordCount: 2;
 // Timline
 //
 ul.timeline {
+  margin-top: 60px;
   list-style-type: none;
   position: relative;
 }
@@ -193,33 +194,62 @@ ul.timeline:before {
   content: ' ';
   background: #d4d9df;
   display: inline-block;
-  position: absolute;
-  left: 29px;
+  position: absolute; 
   width: 2px;
-  height: 100%;
-  z-index: 400;
+  height: calc(100% + 70px); 
+  top: -50px;
 }
-ul.timeline > li {
-  margin: 20px 0;
-  padding-left: 30px;
-  p:not(.timerange){
+ul.timeline > li { 
+  border: 2px solid; 
+  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30; 
+  animation: borderRotate 1s linear infinite forwards; 
+  padding: 5px;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  .desc{
     text-align: justify;
     margin-left: 20px;
   }
-}
-ul.timeline > li:before {
-  content: ' ';
-  background: white;
-  display: inline-block;
-  position: absolute;
-  border-radius: 50%;
-  border: 3px solid #22c0e8;
-  left: 20px;
-  width: 20px;
-  height: 20px;
-  z-index: 400;
-}
+} 
 
+.timeline .timerange{
+  width: 100%;
+  height: 2em;
+  position: relative;
+  color: white; 
+  margin-bottom: 1em; 
+  
+  p{ 
+    left: 0px;
+    top: -25px;
+    position: absolute;
+    background-color: white; 
+    color: black;
+    height: 40px;
+    line-height:  40px;
+    padding-left: 30px;
+    padding-right: 25px; 
+    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%); 
+  }
+}
+.timerange > i{ 
+  font-size: 40px; 
+  left: -25px;
+  top: -25px;
+  position: relative;
+  background-color: white;
+  border-radius: 50%;
+  animation: rotateCircle 1s infinite forwards;
+  z-index: 1;
+  color: black;
+  i{
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+} 
 
 .glowIcon{
   position: relative;
@@ -241,5 +271,14 @@ ul.timeline > li:before {
 @keyframes colorRotate {
   100% {
      filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes rotateCircle{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
