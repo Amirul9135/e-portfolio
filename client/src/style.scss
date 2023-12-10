@@ -1,11 +1,14 @@
 /*General styles*/
 $FGcolor:rgba($color: #a8a9b4, $alpha: 1);
+$FGcolorDarker:rgba($color:#62647a, $alpha: 1);
+$FGColor2:rgba($color:#9ed5ff,$alpha:1);
+$FGColor3:rgba($color:#3370ff, $alpha:1);
 $FCcolor:rgba($color: #149ddd, $alpha: 1);
 $mainBg: rgba($color: #040b14, $alpha: 1);
 $BG2:rgba($color: #112e55, $alpha: 1);
 $BG3:rgba($color:#091a2f, $alpha:1);
 $BG3Fade:rgba($color:#091a2f, $alpha:.5);
-$Lighter:rgba($color:#fff, $alpha:.1);
+$Lighter:rgba($color:#fff, $alpha:.15);
 body{
     background-color: $mainBg;
     color: white;
@@ -143,13 +146,15 @@ $wordCount: 2;
 }
 
 .sect-title{
+  color: $FGColor2; 
+
   position: relative;  
   margin-top: 2vmax;
   margin-bottom: 2vmax;
   h2{
     display: inline-block;  
     width: 100%;
-    border-bottom: 2px dashed white; /* Adjust the style of the dashed line */
+    border-bottom: 2px dashed $FGColor2; /* Adjust the style of the dashed line */
     p{  
       white-space: nowrap;
       overflow: hidden;
@@ -311,4 +316,22 @@ ul.timeline > li {
     margin: auto; 
     width: 98vw; 
   }
+}
+
+.linkbtn{
+  background-color: $FGColor2; 
+  color: $BG2;
+  text-decoration: none;
+  border-radius: .5em;
+  padding-top: .1em;
+  padding-bottom: .2em;
+  padding-left: .5em;
+  padding-right: .5em;
+  white-space: nowrap;
+  font-weight: bold;
+  a{
+  }
+  cursor: pointer; 
+  height: 100px;
+  width: 100px;
 }

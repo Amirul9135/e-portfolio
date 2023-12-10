@@ -11,8 +11,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.js"
  
 
 import './style.scss'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import WIP from './components/WIP';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

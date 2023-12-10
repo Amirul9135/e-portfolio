@@ -1,14 +1,13 @@
 
 
 import React, { useEffect, useState, } from 'react';
-import profImg2 from '../images/profile-img2.png'
+import profImg2 from '../images/profile-img2.png'  
+import LinkBtn from './LinkBtn';
 
 const About: React.FC = () => {
   const [headerFull, setHeaderFull] = useState<boolean>(true);
-  let age = (new Date()).getFullYear() - 1999
-
-
-  useEffect(() => {
+  let age = (new Date()).getFullYear() - 1999  
+  useEffect(() => { 
     const handleScroll = () => {
 
       let scrollPosition = document.documentElement.scrollTop || window.scrollY;
@@ -24,17 +23,13 @@ const About: React.FC = () => {
         else if (window.scrollY) {
           window.scrollY = ((scrollPosition - changedh) < 1) ? 1 : scrollPosition - changedh
         }
-        //+1 prevent hitting 0
+        //+1 prevent hitting 0 
         setHeaderFull(false)
-      } else if (scrollPosition === 0 && !headerFull) {
+      } else if (scrollPosition === 0 && !headerFull) {  
         setHeaderFull(true)
       }
-    }
-    const scrollStart = () => {
 
-    }
-
-
+    } 
     window.addEventListener('scrollend', handleScroll);
 
     // Cleanup function
@@ -65,10 +60,10 @@ const About: React.FC = () => {
             </p>  
 
           </div>
-        </div>
+        </div> 
         <div id='facts' className='row' >
           
-        <div className='sect-title'><h2><p>Quick Facts About Me</p><div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
+        <div className='sect-title'><h2><p>Quick Facts About Me</p><div><i className="fa fa-question-circle-o glowIcon" aria-hidden="true"><i className="fa fa-question-circle-o" aria-hidden="true"></i></i></div></h2></div>
           <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I got diploma in information technology from UTHM, Johor in 2020.</p>
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm in my final year of degree in Computer Science(Software Development) at UTEM, Melaka.</p>
@@ -76,8 +71,10 @@ const About: React.FC = () => {
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for my upcoming internship placement in March 2024.</p>
         </div>
         <div id='journey' className='row' >
-
-        <div className='sect-title'><h2><p>My Journey</p><div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
+        <div className='sect-title'><h2><p>My Journey</p><div><i className="fa fa-history glowIcon" aria-hidden="true"><i className="fa fa-history" aria-hidden="true"></i></i></div></h2></div>
+          
+        <p className='justify'>This section is just a casual sharing of my journey in live until today. Hop over to <LinkBtn text='my background' redirectTo='/Backgrounds' ></LinkBtn> if you want to know more about my educational and professional background</p>
+          
            <ul className="timeline">
             <li>
               <div className='timerange'><i className="fa fa-circle-o-notch glowIcon" aria-hidden="true"><i className="fa fa-circle-o-notch" aria-hidden="true"></i></i><p>1999 - 2011</p></div>
@@ -87,8 +84,7 @@ const About: React.FC = () => {
               <div className='timerange'><i className="fa fa-circle-o-notch glowIcon" aria-hidden="true"><i className="fa fa-circle-o-notch" aria-hidden="true"></i></i><p>2012 - 2016</p></div>
                <p className='desc'>Throughout my highschool days I started to grow closer toward computers. Starting from simply gaming (quite a lot) on my brothers' laptop, around 15 years old I have access to my own laptop which allows me to explore more. I also participated in the Iltizam team which responsible in designing my school yearbooks. The first thing closest to programming that I tried was creating custom maps for a game called Warcraft 3 for fun. As I play more game, my curiosity also grew at some point I started to create bots to automate gameplay using actual programming language</p>
             </li>
-            <li>
-             
+            <li> 
             <div className='timerange'><i className="fa fa-circle-o-notch glowIcon" aria-hidden="true"><i className="fa fa-circle-o-notch" aria-hidden="true"></i></i><p>2017 - 2020</p></div>
               <p className='desc'>Since I spent a lot of time with computer and also likes logical things such as programming, math etc. I decided to pursue my passion in IT by enrolling to UTHM in Johor for my diploma at 2017. It was a very new experience to me as it was my first time living away from my family but it was very statisfying and throughout my studies I was really glad for choosing to further my study in this IT field which have limitless potential.</p>
             </li>
@@ -101,8 +97,7 @@ const About: React.FC = () => {
 
         </div>
 
-      </section>
-
+      </section> 
     </React.Fragment>
   );
 };

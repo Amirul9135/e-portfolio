@@ -119,19 +119,18 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
    display: block;
    position: absolute; 
    box-sizing: content-box;
-   transition: all .5s;
+   transition: opacity 1s;
    background-color: black;
    opacity: 0;
-   height: 100vh;
-   width: 100vw;
-   
+   height: 0;
+   width: 0; 
 }
 .menu-show {
     z-index: 1;
-      .menu-overlay{
-         height: 100vh;
-         width: 100vw;
+      .menu-overlay{  
          opacity: .5; 
+         height: 100vh;
+         width: 100vw; 
       }
     .menu-border {
        float: right;
