@@ -54,9 +54,9 @@ const About: React.FC = () => {
           </div>
         </div>
       </section>
-      <section id="about" className="about" data-aos="zoom-in">
+      <section id="about" className="about" >
         <div id='whoami' className='row'>
-          <div className='sect-title'><h2>Who Am I<div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
+          <div className='sect-title'><h2><p>Who Am I</p><div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
           <div> 
             <img id='profile2' src={profImg2} />   
 
@@ -66,26 +66,26 @@ const About: React.FC = () => {
 
           </div>
         </div>
-        <div id='facts' className='row'>
+        <div id='facts' className='row' >
           
-        <div className='sect-title'><h2>Quick Facts About Me<div><i className="fa fa-question-circle glowIcon" aria-hidden="true"><i className="fa fa-question-circle" aria-hidden="true"></i></i></div></h2></div>
-        <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
+        <div className='sect-title'><h2><p>Quick Facts About Me</p><div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
+          <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I got diploma in information technology from UTHM, Johor in 2020.</p>
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm in my final year of degree in Computer Science(Software Development) at UTEM, Melaka.</p>
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm also working as part time programmer in Pusat Perkhidmatan Pengetahuan Dan Komunikasi, UTEM.</p>
         <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for my upcoming internship placement in March 2024.</p>
         </div>
-        <div id='journey' className='row'>
+        <div id='journey' className='row' >
 
-          <div className='sect-title'><h2>My Journey<div><i className="fa fa-share-alt-square glowIcon" aria-hidden="true"><i className="fa fa-share-alt-square" aria-hidden="true"></i></i></div></h2></div>
-          <ul className="timeline">
+        <div className='sect-title'><h2><p>My Journey</p><div><i className="fa fa-user-circle-o glowIcon" aria-hidden="true"><i className="fa fa-user-circle-o" aria-hidden="true"></i></i></div></h2></div>
+           <ul className="timeline">
             <li>
               <div className='timerange'><i className="fa fa-circle-o-notch glowIcon" aria-hidden="true"><i className="fa fa-circle-o-notch" aria-hidden="true"></i></i><p>1999 - 2011</p></div>
               <p className='desc'>Born in December 1999 I was raised in my hometown Kampung Bukit Kuching, Selangor. I don’t really have particular goal back then, going to my primary school only because it is normal thing to do and encouraged by my family like most kids do. But after my UPSR which was my first big examination, I managed to pass with flying colors and got straight A, it was life changing experience seeing how happy my family especially my mom was. It motivates me even more to study harder.</p>
             </li>
             <li>
               <div className='timerange'><i className="fa fa-circle-o-notch glowIcon" aria-hidden="true"><i className="fa fa-circle-o-notch" aria-hidden="true"></i></i><p>2012 - 2016</p></div>
-               <p className='desc'>Throughout my highschool days I started to grow closer toward computers. Starting from simply gaming (quite a lot) onmy brothers' laptop, around 15 years old I have access to my own laptop which allows me to explore more. I also participated in the Iltizam team which responsible in designing my school yearbooks. The first thing closest to programming that I tried was creating custom maps for Warcraft 3 for fun. As I play more game, my curiosity also grew at some point I started to create bots to automate gameplay using actual programming language</p>
+               <p className='desc'>Throughout my highschool days I started to grow closer toward computers. Starting from simply gaming (quite a lot) on my brothers' laptop, around 15 years old I have access to my own laptop which allows me to explore more. I also participated in the Iltizam team which responsible in designing my school yearbooks. The first thing closest to programming that I tried was creating custom maps for a game called Warcraft 3 for fun. As I play more game, my curiosity also grew at some point I started to create bots to automate gameplay using actual programming language</p>
             </li>
             <li>
              
