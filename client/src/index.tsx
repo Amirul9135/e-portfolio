@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; 
 import reportWebVitals from './reportWebVitals';
-import Mainpage from './components/MainPAge' 
+import Mainpage from './components/MainPage' 
 
 
 import "../node_modules/font-awesome/css/font-awesome.min.css"
