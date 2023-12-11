@@ -4,7 +4,8 @@ import reportWebVitals from './reportWebVitals';
 import Mainpage from './components/MainPage' 
 
 
-import "../node_modules/font-awesome/css/font-awesome.min.css"
+//import "../node_modules/font-awesome/css/font-awesome.min.css"
+import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css"
 
 import "../node_modules/bootstrap/dist/css/bootstrap.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.js"

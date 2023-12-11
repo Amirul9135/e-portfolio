@@ -5,6 +5,7 @@ import { initializeAOS } from '../scripts/AOSInit';
 import About from './About';
 import WIP from './WIP';
 import { useLocation } from 'react-router-dom';
+import BackgroundPage from './BackgroundPage';
 
 
 const Mainpage: React.FC = () => { 
@@ -32,7 +33,9 @@ const Mainpage: React.FC = () => {
         <React.Fragment>
             {(currentPath === '/About') ? (
                 <About />
-            ) : (
+            ) : (currentPath === '/Backgrounds') ? 
+               <BackgroundPage/>
+            : (
                 <WIP/> 
             )}
             <NavMenu ></NavMenu>
