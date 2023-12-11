@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, } from 'react';
 import profImg2 from '../images/profile-img2.png'  
-import LinkBtn from './LinkBtn';
+import { LinkBtn,LinkBtn2 } from './LinkBtn';
 
 const About: React.FC = () => {
   const [headerFull, setHeaderFull] = useState<boolean>(true);
