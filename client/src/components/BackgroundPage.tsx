@@ -271,12 +271,7 @@ const BackgroundPage: React.FC = () => {
         'Anugerah Terbaik Matapelajaran (Biologi)',
         'Anugerah Terbaik Matapelajaran (Fizik)',
       ]
-    },
-    {
-      title: "Merit Award, PTL (Play to Learn) by ASEF (Asia-Europe Foundation)",
-      timerange: '2014', date: new Date(2014, 10, 1), type: EventType.Achievement,
-      content: 'Participated in the Project Dream School under to Play to Learn programme organized by ASEF. Our team deisgned and built model of dream school in a minecraft world which won the merit award'
-    },
+    }, 
     {
       title: "Facilitator, Program Mengenali Dunia Multimedia",
       timerange: 'Nov 2017', date: new Date(2017, 10, 11), type: EventType.Event,
@@ -306,8 +301,8 @@ const BackgroundPage: React.FC = () => {
   const [evtWork, setEvtWork] = useState(true)
   const [evtEducation, setEvtEducation] = useState(true)
   const [evtAchievement, setEvtAchievement] = useState(true)
-  const [evtProject, setEvtProject] = useState(false)
-  const [evtEvent, setEvtEvent] = useState(false)
+  const [evtProject, setEvtProject] = useState(true)
+  const [evtEvent, setEvtEvent] = useState(true)
   const changeSorting = () => {
     setSorting(!ascending)
     sortItems()
