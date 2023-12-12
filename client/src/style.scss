@@ -256,6 +256,37 @@ ul.timeline > li {
     margin-bottom: 1em;
     font-size: 1em;
   }
+  .gallery{
+    width: 100%; 
+    margin-bottom: 1em;
+    overflow-y: hidden;
+    white-space: nowrap;
+    img{
+      cursor: pointer;
+      height: 5em;  
+      margin: 5px .5vmin;
+      transition: all .5s;
+    }
+    img:hover{
+      opacity: .7;
+    }
+  }
+  .gallery::-webkit-scrollbar {
+    box-shadow: inset 0 0 5px grey;  
+    height: 5px;
+  }
+  
+  .gallery::-webkit-scrollbar-thumb { 
+    background: $FGcolor; 
+    border-radius: 10px;
+  }
+  
+  .gallery::-webkit-scrollbar-thumb:hover {
+  background: $FCcolor; 
+}
+  .gallery::-webkit-scrollbar-track {
+    background-color: $mainBg;
+  }
 } 
 
 .timeline .timerange{
@@ -646,7 +677,7 @@ button:hover i::after {
 
 
 .toggleBtn{
-  display: inline-block;
+  display: inline;
   button {
     border-radius: 10px;
     position: relative;
@@ -756,7 +787,7 @@ button:hover i::after {
 }
 
 .sortBtn{
-  display: inline-block;
+  display: inline;
   button { 
     position: relative;  
     text-decoration: none; 
@@ -900,4 +931,71 @@ button:hover i::after {
   padding-bottom: 1em;
   padding-top: 1em;
   border-radius: 1em;
+  overflow-y: hidden;
+  white-space: nowrap;
 } 
+
+.img-modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  .caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  /* Add Animation - Zoom in the Modal */
+.modal-content, .caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+}

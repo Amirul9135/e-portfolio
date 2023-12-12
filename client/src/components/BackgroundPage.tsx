@@ -1,34 +1,12 @@
 
 import React, { useEffect, useState, } from 'react';
 import MinCover from './MinCover';
-import cover from '../images/backgroundbg.png'
+import cover from '../images/backgroundbg.png' 
 import GLOBAL from '../GLOBAL';
 import SortBtn from './SortBtn';
 import ToggleBtn from './ToggleBtn';
+import TimeLineItem from './TimeLineItem';
 
-interface TimeLineItemProp {
-  title: string;
-  timerange: string;
-  content: React.ReactNode;
-  type: GLOBAL.EventType;
-}
-
-const TimeLineItem: React.FC<TimeLineItemProp> = ({ timerange, content, type, title }) => {
-  let ico = type === GLOBAL.EventType.Work ? 'fa-solid fa-briefcase' :
-    (type === GLOBAL.EventType.Education) ? 'fa-solid fa-graduation-cap' :
-      (type === GLOBAL.EventType.Achievement) ? 'fa-solid fa-medal' :
-        (type === GLOBAL.EventType.Project) ? 'fa-solid fa-laptop-code' :
-          (type === GLOBAL.EventType.Event) ? 'fa-solid fa-users-rectangle' : ''
-  return (
-    <React.Fragment>
-      <li className={GLOBAL.EventTypeClass(type)}>
-        <div className='timerange'><i className={`${ico} glowIcon`} aria-hidden="true"><i className={`${ico}`} aria-hidden="true"></i></i><p>{timerange}</p></div>
-        <div className='sub-header'><h4>{title}</h4></div>
-        <div className='desc'>{content}</div>
-      </li>
-    </React.Fragment>
-  )
-}
 
 const BackgroundPage: React.FC = () => {
   const timelineItems = [

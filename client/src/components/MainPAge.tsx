@@ -5,6 +5,7 @@ import About from './About';
 import WIP from './WIP';
 import { useLocation } from 'react-router-dom';
 import BackgroundPage from './BackgroundPage';
+import ImgModal from './ImgModal';
 
 
 const Mainpage: React.FC = () => { 
@@ -37,6 +38,7 @@ const Mainpage: React.FC = () => {
                 <WIP/> 
             )}
             <NavMenu ></NavMenu>
+            <ImgModal></ImgModal>
         </React.Fragment>
     );
 };
