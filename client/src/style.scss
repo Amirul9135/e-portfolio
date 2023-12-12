@@ -251,26 +251,28 @@ ul.timeline > li {
   .desc{
     text-align: justify;
     text-justify: inter-word;
-    margin-left: 2vmax;
+    margin-left: 2vmin;
     padding-bottom: 1em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     font-size: 1em;
   }
   .gallery{
+    margin-left: 2vmin;
     width: 100%; 
-    margin-bottom: 1em;
     overflow-y: hidden;
     white-space: nowrap;
     img{
       cursor: pointer;
       height: 5em;  
-      margin: 5px .5vmin;
+      margin: 0px .5vmin; 
       transition: all .5s;
+      margin-bottom: 1em;
     }
     img:hover{
-      opacity: .7;
-    }
+      opacity: .5;
+    } 
   }
+
   .gallery::-webkit-scrollbar {
     box-shadow: inset 0 0 5px grey;  
     height: 5px;
@@ -938,31 +940,25 @@ button:hover i::after {
 .img-modal{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 100; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 100; /* Sit on top */ 
+  padding-top: 1vh;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  height: 100%; /* Full height */ 
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-  .modal-content {
-    margin: auto;
-    display: block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100vh;
+  .modal-content { 
+    display: inline;
     width: 80%;
-    max-width: 700px;
-  }
-  .caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-  }
+    max-width: 98vw;
+    max-height: 98vh; 
+    object-fit: contain;
+    object-position: center;
+  } 
   /* Add Animation - Zoom in the Modal */
 .modal-content, .caption {
   animation-name: zoom;
@@ -977,12 +973,13 @@ button:hover i::after {
 /* The Close Button */
 .close {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 0;
+  right: 0; 
   color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  line-height: 40px;
 }
 
 .close:hover,

@@ -22,7 +22,7 @@ const About: React.FC = () => {
           <div>
             <img id='profile2' src={profImg2} />
 
-            <p className='justify'>Hello, I’m Muhammad Amirul Asraf bin Mustafa currently a bachelor’s degree student currently going through my final year in my computer science degree specializing in software development. Programming and development is my passion. Towards the end of my degree, I am now looking forward to experiencing my internship and then starting my career in the industry.
+            <p className='justify'>Hello, I’m Muhammad Amirul Asraf bin Mustafa a bachelor’s degree student currently going through my final year in my computer science degree specializing in software development. Computer technology has always been my passion since my highschool days, thus I choose to pursue it professionally in Software Development. Towards the end of my degree, I am now looking forward to experiencing my internship and then starting my career in the industry.
               This page is a little self-indulgent, it’s all about me. Hopefully you’ll find it interesting though.
             </p>
 
