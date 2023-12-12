@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, } from 'react';
 import MinCover from './MinCover';
-import GLOBAL from '../GLOBAL';
+import {EventType,PROJECTSS} from '../GLOBAL'
 import SortBtn from './SortBtn';
 import ToggleBtn from './ToggleBtn';
 import TimeLineItem from './TimeLineItem';
@@ -12,23 +12,46 @@ import cover from '../images/backgroundbg.png'
 import WSHC from '../images/WSHC.png'
 import MIPBanner from '../images/MIPBanner.png'
 import CodeContest from '../images/CodeContest.jpeg'
+import FUKUROAC from '../images/FUKURO_AC.png'
+import FUKUROENV from '../images/FUKURO_ENV.png'
+import FUKURODemo from '../images/FUKUROdemo.jpg'
+import BDOCMQ from '../images/BDOCMQ.png'
+import LFBD1 from '../images/LFBD1.png'
+import LFBD2 from '../images/LFBD2.png'
+import LFBD3 from '../images/LFBD3.png'
+import LFBD4 from '../images/LFBD4.png'
+import SSBoard1 from '../images/SSBoard1.jpg'
+import SSBoard2 from '../images/SSBoard2.jpg'
+import formaid1 from '../images/formaid1.png'
+import formaid2 from '../images/formaid2.png'
+import formaid3 from '../images/formaid3.png'
+import HomeDecor1 from '../images/HomeDecor1.png'
+import HomeDecor2 from '../images/HomeDecor2.png'
+import HomeDecor3 from '../images/HomeDecor3.png'
+import HomeDecor4 from '../images/HomeDecor4.png'
+import sprp1 from '../images/sprp1.png'
+import sprp2 from '../images/sprp2.png'
+import sprp3 from '../images/sprp3.png'
+import sprp4 from '../images/sprp4.png'
+import sprp5 from '../images/sprp5.png'
 
-const BackgroundPage: React.FC = () => {
+const BackgroundPage: React.FC = () => {  
   const timelineItems = [
     {
       title: "Part-Time Programmer, CIO UTEM",
-      timerange: 'June 2023 - Present', date: new Date(), type: GLOBAL.EventType.Work,
+      timerange: 'June 2023 - Present', date: new Date(), type: EventType.Work,
       images: [],
       content: 'As a part time programmer I was given the oppoturnity to join the development team to develop SMKB which is a financial system to be used by UTEM',
       points: [
         'Develop Account Payable module for SMKB (Sistem Maklumat Kewangan Bersepadu,UTEM)',
         'Develop web application interface and functionalities',
         'Develop Back-end services development using ASP.NET web method and web API'],
-        links:[]
+        links:[],
+        skills: PROJECTSS.SMKB 
     },
     {
       title: "Bachelor in Computer Science (Software Development)",
-      timerange: 'Sept 2021 - Present', date: new Date(), type: GLOBAL.EventType.Education,
+      timerange: 'Sept 2021 - Present', date: new Date(), type: EventType.Education,
       content: 'Current CGPA: 3.84',
       points:[
         "Dean's Award: 2021/2022, Semester: 1 & 2",
@@ -37,7 +60,7 @@ const BackgroundPage: React.FC = () => {
     },
     {
       title: "Intern Software Developer, SSHightech Sdn. Bhd.",
-      timerange: 'Sept 2019 - Jan 2020', date: new Date(2019, 8, 1), type: GLOBAL.EventType.Work,
+      timerange: 'Sept 2019 - Jan 2020', date: new Date(2019, 8, 1), type: EventType.Work,
       content: 'I undergo my internship for my diploma studies in SS Hightech Sdn. Bhd. a software house located at Kota Kemuning, Shah Alam',
       points: [
         'Develop and design web applications',
@@ -46,7 +69,7 @@ const BackgroundPage: React.FC = () => {
     },
     {
       title: "Diploma in Information Technology, UTHM",
-      timerange: 'June 2017 - Jan 2020', date: new Date(2017, 5, 1), type: GLOBAL.EventType.Education,
+      timerange: 'June 2017 - Jan 2020', date: new Date(2017, 5, 1), type: EventType.Education,
       content: 'CGPA: 3.84 (First Class)',
       points: [
         "Dean's Award: 2017/2017, Semester: 1 & 2",
@@ -55,7 +78,7 @@ const BackgroundPage: React.FC = () => {
     },
     {
       title: "SPM (Pure Science), SMK Jeram",
-      timerange: '2012 - 2016', date: new Date(2016, 0, 1), type: GLOBAL.EventType.Education,
+      timerange: '2012 - 2016', date: new Date(2016, 0, 1), type: EventType.Education,
       content: 'SPM (Sijil Pelajaran Malaysia) result: 1A+, 2A, 6A-',
       points: [
         "A+ : Mathematics",
@@ -65,77 +88,169 @@ const BackgroundPage: React.FC = () => {
     },
     {
       title: "SPRP (Sistem Penempahan Ruang Pembelajaran)",
-      timerange: 'Nov 2018', date: new Date(2018, 10, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Nov 2018', date: new Date(2018, 10, 1), type: EventType.Project,
+      content: 'This project was my very first information system which involves integration with a proper database. The objective of the project was to provide an online solution for students at UTHM to book available rooms which was previously done manually on paper.',
+      skills: PROJECTSS.SPRP,
+      images: [
+        sprp1,
+        sprp2,
+        sprp3,
+        sprp4,
+        sprp5,
+      ]
     },
     {
       title: "Homes Décor",
-      timerange: 'May 2019', date: new Date(2019, 4, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'May 2019', date: new Date(2019, 4, 1), type: EventType.Project,
+      content: 'Homes Décor is an android mobile application developed to assist interior designers or even housewives who can benefits from the convenience of Augmented Reality in designing room, houses or offices. The main idea is to allow our user to move around objects, specifically furniture without having to move it physically. Along with the furniture customizations feature, it was expected to ease user not only in designing their furniture arrangements but also makes a better-informed decision to purchase the right furniture for them.',
+      skills: PROJECTSS.HomeDecor,
+      images:[
+        HomeDecor1,
+        HomeDecor2,
+        HomeDecor3,
+        HomeDecor4
+      ]
     },
     {
       title: "Formaid",
-      timerange: 'Sept 2019', date: new Date(2019, 8, 10), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Sept 2019', date: new Date(2019, 8, 10), type: EventType.Project,
+      content: 'Formaid is a web application which allows users to view available maids and schedule a task for them. Although I’m not directly involved in the system development itself, as my first task during my internship at SSHightech Sdn. Bhd. I was tasked to create and design the landing page with a contact feature while also creating an introduction video for the system. ',
+      skills:PROJECTSS.Formaid,
+      links:[
+        {text:'Video Tour',url:'https://www.youtube.com/watch?v=-OnxvFVfgdc&ab_channel=ForseeeDigitalSignage'}
+      ],
+      images:[
+        formaid1,
+        formaid2,
+        formaid3
+      ]
+
     },
     {
       title: "SS Board",
-      timerange: 'Sept 2019', date: new Date(2019, 8, 30), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Sept 2019', date: new Date(2019, 8, 30), type: EventType.Project,
+      content: 'The SS Board is arduino (Node MCU ESP 12-E) board  configured to operates game arcades which uses token system. By the time I joined the team the system was already completed. My role was to install components on the boards and configure the board to hardcode the serial number',
+      images:[
+        SSBoard1,
+        SSBoard2
+      ]
     },
     {
       title: "LifeBuddy",
-      timerange: 'Oct 2019', date: new Date(2019, 9, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Oct 2019', date: new Date(2019, 9, 1), type: EventType.Project,
+      content: ' Life Buddy was a web application where users can reach home related services such as air conditioner maintenance, cleaning, plumbing etc. It was the first project which I participated in from the very beginning phase during my internship at SSHightech.',
+      images:[
+        LFBD1,
+        LFBD2,
+        LFBD3,
+        LFBD4
+      ],
+      skills: PROJECTSS.LifeBuddy
     },
     {
       title: "E-Namecard",
-      timerange: 'Dec 2019', date: new Date(2019, 11, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Dec 2019', date: new Date(2019, 11, 1), type: EventType.Project,
+      content: 'As the name suggest, this project is simply and electronic name card which is a web page hosted and made accessible via QR codes. It was my last project during my internship at SS Hightech Sdn. Bhd.',
+      skills:PROJECTSS.ENamecard,
+      links:[
+        {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Isaac/'},
+        {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Jason/'},
+        {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Jessie/'},
+        {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Ken/'}
+      ]
     },
     {
       title: "BDO CMQ",
-      timerange: 'Jan 2022', date: new Date(2022, 0, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Jan 2022', date: new Date(2022, 0, 1), type: EventType.Project,
+      content: 'BDO_CMQ is acronyms of Black Desert Online Central Market Queue which is a very simple system I developed by myself for myself. It simply query the data of what being listed in the online game central market via its API which then is forwarded to me via Discord by the Discord bot integrated with the system. Hobby aside, I also developed this system in order to explore and learn about NodeJs and API by implementing it. The application was deployed in a free Heroku hosting until October 2022 before it was closed down due to changes by Heroku which stops their free tier hosting.',
+      links:[
+        {text:'BDOCMQ-GitHub',url:'https://github.com/Amirul9135/BDO_CMQ'}
+      ],
+      skills: PROJECTSS.BDOCMQ,
+      images:[BDOCMQ]
     },
     {
       title: "SPMS (Student Performance Monitoring System)",
-      timerange: 'Jan 2023', date: new Date(2023, 0, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Jan 2023', date: new Date(2023, 0, 1), type: EventType.Project,
+      content: 'SPMS is a web-based system developed by my team for our Workshop 2 course. It is an online learning platform specializing in assessment and performance monitoring.',
+      points:[
+        'Question Bank feature to allows teacher to share a big centralized question bank from which they can form their own question sets to be included in their assessment',
+        'Assessment management to allows teacher to conduct and shcedule assessments assigned to their students',
+        'Assessment session equipped with detection feature which allow teachers to monitor their students remotely in realtime with indicators that let the teachers know if the student switch tabs or windows',
+        'Analytics of the results which forms the performance report which is also grouped to schools or geographical area to provide better insights'
+      ],
+      links:[
+        {text:'SPMS',url:'http://www.amirulasraf.com/spms/'},
+        {text:'SPMS-GitHub',url:'https://github.com/Amirul9135/SPMS_2.0'},
+      ],
+      skills:PROJECTSS.SPMS
     },
     {
       title: "HIS (Hospital Information System)",
-      timerange: 'Jan 2023', date: new Date(2023, 0, 11), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Jan 2023', date: new Date(2023, 0, 11), type: EventType.Project,
+      content: 'The HIS was developed as our coursework project. The system consist of the following features:',
+      points:[
+        'Patient Management',
+        'Queue Management utilizing WebSocket to ensure realtime update of the queue',
+        'Consultation Recording which uses ICD10 (International Code of Disease Version 10) and MDC (Malaysia Drug Codes) to standardize the terms used during doctor-patient consultation session',
+        "EMR (Electronic Medical Record) which provide complete history of patients' past disease as per recorded in the system"
+      ],
+      links:[
+        {text:'HIS-GitHub',url:'https://github.com/Amirul9135/stse_his'},
+        {text:'Demo Video',url:'https://youtu.be/7VlNGMhSL-8?t=157'}
+      ],
+      skills: PROJECTSS.HIS
     },
     {
       title: "FUKURO (Fundamental Kernel Utilization Realtime Overseer)",
-      timerange: 'Sept 2023', date: new Date(2023, 8, 1), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Sept 2023', date: new Date(2023, 8, 1), type: EventType.Project,
+      content: 'FUKURO was my biggest solo project which I completed for my PSM (Project Sarjana Muda) during my degree. The main idea is to provide solution to monitor & manage hosts/server remotely via mobile application. FUKURO consist of 3 main components which is:',
+      points:[
+        'Mobile Application as the main GUI which communicate with the server via REST API and partially WebSocket for realtime features',
+        'Agent Application which is the embedded application designed to run on the background of the monitored hosts to continously extract resource usage and submit to the server via WebScoket connection. It also perform authorized command as the system proxy when demanded by user',
+        'Server Application which is the centralized controls of the system. It facilitate the communication between users and agents via both HTTP and WebScoket. Integrated with MySql database for storage, it is the main brain of the system'
+      ],
+      links:[
+        {text:'Manual',url:'http://amirulasraf.com/fukuro/'},
+        {text:'Mobile-Repository',url:'https://github.com/Amirul9135/fukuro_mobile'},
+        {text:'Agent-Repository',url:'https://github.com/Amirul9135/FUKURO_Agent'},
+        {text:'Server-Repository',url:'https://github.com/Amirul9135/FUKURO_WSS'}
+      ]
+      ,
+      images:[
+        FUKURODemo,
+        FUKUROENV,
+        FUKUROAC
+      ],
+      skills: PROJECTSS.FUKURO
     },
     {
       title: "SMKB",
-      timerange: 'Ongoing', date: new Date(), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Ongoing', date: new Date(), type: EventType.Project,
+      content: 'Sistem Maklumat Kewangan Bersepadu is a web-based financial management system. As part-time programmer, I was tasked to develop the account payable module from back-end to front-end',
+      links:[ ],
+      skills:PROJECTSS.SMKB
     },
     {
       title: "E-Portfolio",
-      timerange: 'Ongoing', date: new Date(), type: GLOBAL.EventType.Project,
-      content: ' '
+      timerange: 'Ongoing', date: new Date(), type: EventType.Project,
+      content: 'The e-portfolio project is this website which I developed in other to introduce myself and showcase my skills as part of my preparation before going into the industry',
+      links:[{text:'E-Portfolio GitHub',url:'https://github.com/Amirul9135/e-portfolio'}],
+      skills:PROJECTSS.eportfolio
     },
     {
       title: "Best Project, Karnival Inovasi Jabatan Teknologi Maklumat",
-      timerange: 'May 2019', date: new Date(2019, 4, 1), type: GLOBAL.EventType.Achievement,
-      content: 'The event was held as a platform for final year students including myself back then to present our final year project. Our project Homes Décor was awared as the best project'
+      timerange: 'May 2019', date: new Date(2019, 4, 1), type: EventType.Achievement,
+      content: 'The event was held as a platform for final year students including myself back then to present our final year project. Our project Homes Décor was awared as the best project',
     },
     {
       title: "Vice-Chancellor Award , Istiadat Konvokesyen UTHM 2020",
-      timerange: 'Nov 2020', date: new Date(2020, 10, 8), type: GLOBAL.EventType.Achievement,
+      timerange: 'Nov 2020', date: new Date(2020, 10, 8), type: EventType.Achievement,
       content: ' '
     },
     {
       title: "Champion, C0D3 Contest",
-      timerange: 'Dec 2022', date: new Date(2022, 11, 17), type: GLOBAL.EventType.Achievement,
+      timerange: 'Dec 2022', date: new Date(2022, 11, 17), type: EventType.Achievement,
       content: 'Our team "NULL" managed to win the first place in C0D3 contest held by FTMK, UTEM. The competition involve ',
       images:[
         CodeContest 
@@ -143,12 +258,12 @@ const BackgroundPage: React.FC = () => {
     },
     {
       title: "Gold Medal, Workshop II Innovation Showcase",
-      timerange: 'Jan 2023', date: new Date(2023, 0, 18), type: GLOBAL.EventType.Achievement,
+      timerange: 'Jan 2023', date: new Date(2023, 0, 18), type: EventType.Achievement,
       content: 'Our team was awarded with the Gold Medal for the project SPMS (Student Performance Monitoring System) among the 22 project presented during the showcase.'
     },
     {
       title: "Excellent Student Award SPM 2016",
-      timerange: '2017', date: new Date(2017, 0, 1), type: GLOBAL.EventType.Achievement,
+      timerange: '2017', date: new Date(2017, 0, 1), type: EventType.Achievement,
       content: 'Aside from the excellent student award I was also received the following awards during the award ceremony',
       points:[
         'Anugerah Terbaik Matapelajaran (Matematik)',
@@ -159,18 +274,18 @@ const BackgroundPage: React.FC = () => {
     },
     {
       title: "Merit Award, PTL (Play to Learn) by ASEF (Asia-Europe Foundation)",
-      timerange: '2014', date: new Date(2014, 10, 1), type: GLOBAL.EventType.Achievement,
+      timerange: '2014', date: new Date(2014, 10, 1), type: EventType.Achievement,
       content: 'Participated in the Project Dream School under to Play to Learn programme organized by ASEF. Our team deisgned and built model of dream school in a minecraft world which won the merit award'
     },
     {
       title: "Facilitator, Program Mengenali Dunia Multimedia",
-      timerange: 'Nov 2017', date: new Date(2017, 10, 11), type: GLOBAL.EventType.Event,
+      timerange: 'Nov 2017', date: new Date(2017, 10, 11), type: EventType.Event,
       content: 'This program was ornagized by my classmates and I as part of our extra co-curricular activity for MULTIMEDIA INTELIGENT PRESENTATION club. The project was held to expose primary school students at SK Penchu to presentation using Microsoft Powerpoint. Aside from being facilitator, I was also responsible in designing the banner for the program.',
       images:[MIPBanner]
     },
     {
       title: "Facilitator, Workshop I Helping Class",
-      timerange: 'Oct 2023', date: new Date(2023, 9, 28), type: GLOBAL.EventType.Event,
+      timerange: 'Oct 2023', date: new Date(2023, 9, 28), type: EventType.Event,
       content: 'Workshop I was a mandatory subject for all 2nd year degree student in FTMK, UTEM. The helping class was organized to assist students in developing an information system using C++ which is also their first time experience in developing an information system for most participants',
       points:[
         'Responsible for preparing the example project and materials for the class which is still available at my GitHub',
@@ -204,21 +319,21 @@ const BackgroundPage: React.FC = () => {
     });
     setSortedTimelineItems(sortedItems);
   };
-  const toggleEvt = (type: GLOBAL.EventType) => {
+  const toggleEvt = (type: EventType) => {
     switch (type) {
-      case GLOBAL.EventType.Work:
+      case EventType.Work:
         setEvtWork(!evtWork);
         break;
-      case GLOBAL.EventType.Education:
+      case EventType.Education:
         setEvtEducation(!evtEducation);
         break;
-      case GLOBAL.EventType.Achievement:
+      case EventType.Achievement:
         setEvtAchievement(!evtAchievement);
         break;
-      case GLOBAL.EventType.Project:
+      case EventType.Project:
         setEvtProject(!evtProject);
         break;
-      case GLOBAL.EventType.Event:
+      case EventType.Event:
         setEvtEvent(!evtEvent);
         break;
     }
@@ -240,11 +355,11 @@ const BackgroundPage: React.FC = () => {
 
             <SortBtn flag={ascending} handler={changeSorting}></SortBtn> &nbsp;
 
-            <ToggleBtn text='Education' flag={evtEducation} handler={() => toggleEvt(GLOBAL.EventType.Education)} ></ToggleBtn>
-            <ToggleBtn text='Work' flag={evtWork} handler={() => toggleEvt(GLOBAL.EventType.Work)} ></ToggleBtn>
-            <ToggleBtn text='Achievement' flag={evtAchievement} handler={() => toggleEvt(GLOBAL.EventType.Achievement)} ></ToggleBtn>
-            <ToggleBtn text='Project' flag={evtProject} handler={() => toggleEvt(GLOBAL.EventType.Project)} ></ToggleBtn>
-            <ToggleBtn text='Events' flag={evtEvent} handler={() => toggleEvt(GLOBAL.EventType.Event)} ></ToggleBtn>
+            <ToggleBtn text='Education' flag={evtEducation} handler={() => toggleEvt(EventType.Education)} ></ToggleBtn>
+            <ToggleBtn text='Work' flag={evtWork} handler={() => toggleEvt(EventType.Work)} ></ToggleBtn>
+            <ToggleBtn text='Achievement' flag={evtAchievement} handler={() => toggleEvt(EventType.Achievement)} ></ToggleBtn>
+            <ToggleBtn text='Project' flag={evtProject} handler={() => toggleEvt(EventType.Project)} ></ToggleBtn>
+            <ToggleBtn text='Events' flag={evtEvent} handler={() => toggleEvt(EventType.Event)} ></ToggleBtn>
           </div>
           <div className='sect-title'><h2><div><i className="fa-solid fa-person-walking-dashed-line-arrow-right glowIcon"><i className="fa-solid fa-person-walking-dashed-line-arrow-right"></i></i></div></h2></div>
           <div>
@@ -260,6 +375,7 @@ const BackgroundPage: React.FC = () => {
                   images={item.images}
                   points={item.points}
                   links={item.links}
+                  skills={item.skills}
                 />
               ))}
             </ul>
