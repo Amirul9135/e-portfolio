@@ -9,8 +9,7 @@ interface IProps {
 }
 
 const MinCover: React.FC<IProps> = ({title,coverImg,extraTitle}) => {
-  const [headerFull, setHeaderFull] = useState<boolean>(true);
-  let age = (new Date()).getFullYear() - 1999  
+  const [headerFull, setHeaderFull] = useState<boolean>(true); 
   useEffect(() => { 
     const handleScroll = () => {
 

@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import NavMenu from './NavMenu';
-import { initializeAOS } from '../scripts/AOSInit';
+import NavMenu from './NavMenu'; 
 import About from './About';
 import WIP from './WIP';
 import { useLocation } from 'react-router-dom';
@@ -22,8 +21,7 @@ const Mainpage: React.FC = () => {
         document.title = "Amirul's" + currentPath.replace('/',' ');
     }
     console.log(currentPath)
-    useEffect(() => {
-        initializeAOS();
+    useEffect(() => { 
         
         // Optionally return a cleanup function if needed
         return () => { 

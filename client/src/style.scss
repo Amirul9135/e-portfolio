@@ -52,7 +52,7 @@ body{
     background-size: cover;
     background-position: center right;
     transition: all .5s;
-    z-index: 2; 
+    z-index: 3; 
     width: 100%; 
     height: 100vh;
     background-repeat: no-repeat; 
@@ -246,11 +246,14 @@ ul.timeline > li {
   padding: 5px;
   padding-right: .5em;
   padding-bottom: 1em;
+  transform-origin: top left;
+  transition: all .5s;
   .desc{
     text-align: justify;
     text-justify: inter-word;
     margin-left: 2vmax;
     padding-bottom: 1em;
+    margin-bottom: 1em;
     font-size: 1em;
   }
 } 
@@ -265,7 +268,7 @@ ul.timeline > li {
     left: 0px;
     top: -25px;
     position: absolute;
-    color: $FGcolor;
+    color: white;
     background-color: $BG2;  
     font-weight: bold;
     height: 40px;
@@ -334,6 +337,17 @@ ul.timeline > li {
   #about{
     margin: auto; 
     width: 98vw; 
+  }
+  .contents{
+    margin: auto;
+    width: 98vw;
+  }
+  .contents > div{
+    
+    padding: 1em;
+    background-color: $Lighter;
+    border-radius: 1vmax;
+    margin: 1vmin;
   }
 }
 
@@ -629,3 +643,261 @@ button:hover i::after {
 }
 
 }
+
+
+.toggleBtn{
+  display: inline-block;
+  button {
+    border-radius: 10px;
+    position: relative;
+    background: #444;
+    color: #fff;
+    text-decoration: none; 
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1em;
+    padding: .5em 1em;
+    transition: 0.2s;
+  }
+  
+  
+  button i::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 80%;
+    top: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+  }
+  button::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #272822;
+  }
+  
+  button span {
+    position: relative;
+    z-index: 1;
+  }
+  button i {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+  
+  button i::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 20%;
+    bottom: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes box {
+    0% {
+      box-shadow: #27272c;
+    }
+    50% {
+      box-shadow: 0 0 25px var(--clr);
+    }
+    100% {
+      box-shadow: #27272c;
+    }
+  }
+  
+  }
+
+.toggleBtn[data-enable="true"]{
+    
+  button {
+    letter-spacing: 0.2rem;
+    padding: .5em 1em; 
+    margin-left: .5em;
+    margin-right: .5em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 25px var(--clr);
+    border-radius: 0;
+  }
+  
+  
+  button i::before {
+    width: 15px;
+    left: 20%;
+    animation: move 3s infinite;
+  }
+  
+  button i::after {
+    width: 15px;
+    left: 80%;
+    animation: move 3s infinite;
+  }
+  
+}
+
+.sortBtn{
+  display: inline-block;
+  button { 
+    position: relative;  
+    text-decoration: none; 
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1em;
+    padding: .5em 1em;
+    transition: 0.2s;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 25px var(--clr); 
+  }
+  
+  
+  button >i::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 80%;
+    top: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+  }
+  button::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #272822;
+  }
+  
+  button span {
+    position: relative;
+    z-index: 1;
+  }
+  button> i {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+  
+  button >i::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 20%;
+    bottom: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes box {
+    0% {
+      box-shadow: #27272c;
+    }
+    50% {
+      box-shadow: 0 0 25px var(--clr);
+    }
+    100% {
+      box-shadow: #27272c;
+    }
+  }
+  
+  }
+
+.sortBtn[data-desc="yes"]{
+     
+  button> i::before {
+    width: 15px;
+    left: 20%;
+    animation: move 3s infinite;
+  }
+  
+  button >i::after {
+    width: 15px;
+    left: 80%;
+    animation: move 3s infinite;
+  }
+  
+}
+
+.sub-header  {
+  h1,h2,h3,h4{ 
+    color:$FGColor2;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1em;
+    padding-bottom: 10px;
+    position: relative;
+  }
+  h1:after,h2:after,h3:after,h4:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 1px;
+    width: 95%;
+    max-width: 255px;
+    background-color: $FCcolor;
+  }
+  h1:before,h2:before,h3:before,h4:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 55px;
+    background-color: $FGColor3;
+  }
+} 
+
+.hide-project .evt-project,.hide-work .evt-work,.hide-achievement .evt-achievement,
+ .hide-event .evt-event, .hide-education .evt-education{ 
+    transform: scale(0);
+    height: 0;
+    padding: 0;
+    margin: 0; 
+} 
+
+#top-bar{ 
+  position: sticky;
+  top:  min(200px,20vh);   
+  width: 100%;  
+  z-index: 2;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  border-radius: 1em;
+} 

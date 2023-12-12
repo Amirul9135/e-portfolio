@@ -31,16 +31,16 @@ const About: React.FC = () => {
         <div id='facts' className='row' >
 
           <div className='sect-title'><h2><p>Quick Facts About Me</p><div><i className="fa-regular fa-circle-question glowIcon"><i className="fa-regular fa-circle-question"></i></i></div></h2></div>
-          <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
-          <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I got diploma in information technology from UTHM, Johor in 2020.</p>
-          <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm in my final year of degree in Computer Science(Software Development) at UTEM, Melaka.</p>
-          <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;I'm also working as part time programmer in Pusat Perkhidmatan Pengetahuan Dan Komunikasi, UTEM.</p>
-          <p><i className="fa fa-circle-o glowIcon" aria-hidden="true"><i className="fa fa-circle-o" aria-hidden="true"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for my upcoming internship placement in March 2024.</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I got diploma in information technology from UTHM, Johor in 2020.</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I'm in my final year of degree in Computer Science(Software Development) at UTEM, Melaka.</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I'm also working as part time programmer in Pusat Perkhidmatan Pengetahuan Dan Komunikasi, UTEM.</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for my upcoming internship placement in March 2024.</p>
         </div>
         <div id='journey' className='row' >
           <div className='sect-title'><h2><p>My Journey</p><div><i className="fa-solid fa-person-running glowIcon"><i className="fa-solid fa-person-running"></i></i></div></h2></div>
 
-          <p className='justify'>This section is just a casual sharing of my journey in live until today. Hop over to <LinkBtn text='my background' redirectTo='/Backgrounds' ></LinkBtn> if you want to know more about my educational and professional background</p>
+          <p className='justify'>Just a casual sharing of my journey in live until today. Hop over to <LinkBtn text='my background' redirectTo='/Backgrounds' ></LinkBtn> if you want to know more about my educational and professional background</p>
 
           <ul className="timeline">
             <li>
