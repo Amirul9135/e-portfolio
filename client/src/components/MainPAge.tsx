@@ -8,7 +8,7 @@ import BackgroundPage from './BackgroundPage';
 import ImgModal from './ImgModal';
 
 
-const Mainpage: React.FC = () => { 
+const MainPage: React.FC = () => { 
     let location = useLocation();
     var currentPath = location.pathname;
     console.log(currentPath)
@@ -42,5 +42,5 @@ const Mainpage: React.FC = () => {
         </React.Fragment>
     );
 };
-export default Mainpage
+export default MainPage
 
