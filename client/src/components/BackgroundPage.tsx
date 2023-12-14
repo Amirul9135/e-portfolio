@@ -65,7 +65,8 @@ const BackgroundPage: React.FC = () => {
       points: [
         'Develop and design web applications',
         'Re-program, update and perform maintenance for Arduino Boards'
-      ]
+      ],
+      skills: Array.from(new Set(PROJECTSS.Formaid.concat(PROJECTSS.LifeBuddy,PROJECTSS.ENamecard)))
     },
     {
       title: "Diploma in Information Technology, UTHM",
@@ -227,7 +228,12 @@ const BackgroundPage: React.FC = () => {
     {
       title: "SMKB",
       timerange: 'Ongoing', date: new Date(), type: EventType.Project,
-      content: 'Sistem Maklumat Kewangan Bersepadu is a web-based financial management system. As part-time programmer, I was tasked to develop the account payable module from back-end to front-end',
+      content: 'Sistem Maklumat Kewangan Bersepadu is a web-based financial management system. As part-time programmer, I was tasked to develop the account payable module from back-end to front-end which involves:',
+      points:[
+        'Web interface design',
+        'ASP Web Method & Web API',
+        'Integration with Microsoft SQL Server'
+      ],
       links:[ ],
       skills:PROJECTSS.SMKB
     },
@@ -251,7 +257,7 @@ const BackgroundPage: React.FC = () => {
     {
       title: "Champion, C0D3 Contest",
       timerange: 'Dec 2022', date: new Date(2022, 11, 17), type: EventType.Achievement,
-      content: 'Our team "NULL" managed to win the first place in C0D3 contest held by FTMK, UTEM. The competition involve ',
+      content: 'Our team "NULL" managed to win the first place in C0D3 contest held by FTMK, UTEM. All the participants was given with same 7 question and winners are decided by the completion time and efficiency of the code ',
       images:[
         CodeContest 
       ]
