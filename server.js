@@ -13,5 +13,9 @@ app.get('/download/resume/AmirulAsraf', function (req, res) {
     return res.sendFile(path.join(__dirname, 'Resume', 'AmirulAsraf.pdf'))
 })
 
+app.get('/About', (req, res) => {
+    // Redirect to /
+    res.redirect('/');
+  });
 
 app.use(express.static("client/build")); 
