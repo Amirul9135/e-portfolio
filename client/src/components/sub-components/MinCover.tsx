@@ -6,12 +6,16 @@ interface IProps {
     title:string;
     coverImg:String; 
     extraTitle?:ReactNode;
+    forceMin?:boolean
 }
 
-const MinCover: React.FC<IProps> = ({title,coverImg,extraTitle}) => {
+const MinCover: React.FC<IProps> = ({title,coverImg,extraTitle,forceMin}) => {
   const [headerFull, setHeaderFull] = useState<boolean>(true); 
   useEffect(() => { 
     const handleScroll = () => {
+      if(forceMin){
+        return
+      }
 
       let scrollPosition = document.documentElement.scrollTop || window.scrollY; 
       if (scrollPosition > 0 && headerFull) {
@@ -31,8 +35,7 @@ const MinCover: React.FC<IProps> = ({title,coverImg,extraTitle}) => {
       }
 
     } 
-    window.addEventListener('scrollend', handleScroll);
-
+    window.addEventListener('scrollend', handleScroll); 
     // Cleanup function
     return () => {
       // Remove the scroll event listener when the component unmounts 
@@ -40,8 +43,10 @@ const MinCover: React.FC<IProps> = ({title,coverImg,extraTitle}) => {
     };
   }, [headerFull]);
   return (
+    
     <React.Fragment>
-      <section id="hero" style={{backgroundImage:`url(${coverImg})`}} className={`conic-anim-border d-flex flex-column justify-content-end align-items-center ${headerFull ? 'header-full' : 'header-min'}`}>
+      
+      <section id="hero" style={{backgroundImage:`url(${coverImg})`}} className={`conic-anim-border d-flex flex-column justify-content-end align-items-center ${forceMin ? 'header-min' : headerFull ? 'header-full' : 'header-min'}`}>
         <div className="hero-container" data-aos="fade-in"  >
           <h1>{title}</h1> 
           {extraTitle}

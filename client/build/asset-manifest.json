@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.2faa05ee.css",
-    "main.js": "/static/js/main.c599f409.js",
+    "main.css": "/static/css/main.3852a396.css",
+    "main.js": "/static/js/main.02124d46.js",
     "static/js/787.f198cce5.chunk.js": "/static/js/787.f198cce5.chunk.js",
     "static/media/WSHC.png": "/static/media/WSHC.51c99aca479071135677.png",
-    "static/media/backgroundbg.png": "/static/media/backgroundbg.795357654b2b9b343035.png",
     "static/media/HomeDecor1.png": "/static/media/HomeDecor1.316d46f44926f2223015.png",
     "static/media/hero-bg.png": "/static/media/hero-bg.b2a564a17acd9b62c113.png",
     "static/media/formaid1.png": "/static/media/formaid1.af098780e891c1ca9b10.png",
@@ -41,12 +40,12 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.2eb7b3ef25042305f3ff.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/index.html",
-    "main.2faa05ee.css.map": "/static/css/main.2faa05ee.css.map",
-    "main.c599f409.js.map": "/static/js/main.c599f409.js.map",
+    "main.3852a396.css.map": "/static/css/main.3852a396.css.map",
+    "main.02124d46.js.map": "/static/js/main.02124d46.js.map",
     "787.f198cce5.chunk.js.map": "/static/js/787.f198cce5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2faa05ee.css",
-    "static/js/main.c599f409.js"
+    "static/css/main.3852a396.css",
+    "static/js/main.02124d46.js"
   ]
 }

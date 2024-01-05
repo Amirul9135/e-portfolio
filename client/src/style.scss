@@ -172,6 +172,7 @@ $wordCount: 2;
   h2{
     display: inline-block;  
     width: 100%;
+    padding-bottom: .2em;
     border-bottom: 2px dashed $FGColor2; /* Adjust the style of the dashed line */
     p{  
       white-space: nowrap;
@@ -283,22 +284,6 @@ ul.timeline > li {
     } 
   }
 
-  .skills::-webkit-scrollbar, .links::-webkit-scrollbar {
-    box-shadow: inset 0 0 5px grey;  
-    height: 5px;
-  }
-  
-  .skills::-webkit-scrollbar-thumb,.links::-webkit-scrollbar-thumb { 
-    background: $FGcolor; 
-    border-radius: 10px;
-  }
-  
-  .skills::-webkit-scrollbar-thumb:hover,.links::-webkit-scrollbar-thumb:hover {
-  background: $FCcolor; 
-}
-  .skills::-webkit-scrollbar-track, .links::-webkit-scrollbar-track {
-    background-color: $mainBg;
-  }
   .gallery::-webkit-scrollbar {
     box-shadow: inset 0 0 5px grey;  
     height: 5px;
@@ -952,13 +937,14 @@ button:hover i::after {
 } 
 
 #top-bar{ 
+  top: 0;
   position: sticky;
-  top:  min(200px,20vh);   
-  width: 100%;  
+  width: calc(100% - 2rem);  
   z-index: 2;
-  padding-bottom: 1em;
-  padding-top: 1em;
-  border-radius: 1em;
+  padding-bottom: 1px;
+  padding-top: 28px;
+  padding-left: 28px;
+  margin-left: calc(2rem - 28px);
   overflow-y: hidden;
   white-space: nowrap;
 } 
@@ -1022,3 +1008,81 @@ button:hover i::after {
   }
 }
 }
+
+
+
+.skills::-webkit-scrollbar, .links::-webkit-scrollbar, #top-bar::-webkit-scrollbar {
+  box-shadow: inset 0 0 5px grey;  
+  height: 5px;
+}
+
+.skills::-webkit-scrollbar-thumb,.links::-webkit-scrollbar-thumb, #top-bar::-webkit-scrollbar-thumb { 
+  background: $FGcolor; 
+  border-radius: 10px;
+}
+
+.skills::-webkit-scrollbar-thumb:hover,.links::-webkit-scrollbar-thumb:hover, #top-bar::-webkit-scrollbar-thumb:hover {
+background: $FCcolor; 
+}
+.skills::-webkit-scrollbar-track, .links::-webkit-scrollbar-track, #top-bar::-webkit-scrollbar-track {
+  background-color: $mainBg;
+}
+
+
+
+
+//skill items
+$border-start-color: #ffff; // Start color of the gradient
+$border-end-color: #00ff00; // End color of the gradient
+ 
+.skill-item{
+  position: relative; 
+  margin: .5em;
+  .ico{ 
+  }
+  .text{ 
+    .name{
+      $gradient-scale: 30%; // Default gradient scale
+      font-size: 1.3em;
+      font-style: bold;     
+      &:before {
+        content : "";
+        position: absolute;
+        left    : 0; 
+        height  : 1px;
+        width   : calc(50% + var(--p)) ;  /* percentage of the element width*/ 
+        border-bottom:2px dashed $FCcolor; 
+        margin-top:1.5em; /*move the border below the text*/ 
+      }
+    }
+    .count{
+      padding-top: .3em;
+
+      color: $FGColor2;
+    }
+  }
+  .projects{ 
+    transform-origin: left;
+    transform: scaleX(0); 
+    height: 0;
+    transition: all .3s;  
+  }
+}
+.skill-item:hover,.skill-item:active{
+  
+  border: 2px solid; 
+  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30; 
+  animation: borderRotate 1s linear infinite forwards;
+  .projects{ 
+    transform-origin: left; 
+    transform: scaleX(1);
+    transform: scaleY(1);
+    height: fit-content;
+    transition: all .3s;  
+  }
+}
+
+
+
+
+ 

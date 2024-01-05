@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, } from 'react'; 
 import { LinkBtn, LinkBtn2 } from './LinkBtn';
-import {EventType,EventTypeClass,Skills} from '../GLOBAL'
+import {EventType,EventTypeClass,Skills} from '../../GLOBAL'
 
 
 interface TimeLineItemProp {
@@ -57,7 +57,7 @@ const TimeLineItem: React.FC<TimeLineItemProp> = ({ timerange, content, images, 
                     {skills && (
                         <div className='skills'> 
                             {skills.map((item, index) => (
-                                <LinkBtn2 key={index} text={item} redirectTo={`Skills/${item}`} />
+                                <LinkBtn2 key={index} text={item} redirectTo={`Skills#${item}`} />
                             ))}
                         </div>
                     )}

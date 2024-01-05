@@ -85,6 +85,11 @@ const NavMenu: React.FC = () => {
                             <span>PROJECTS</span><i className="fa fa-clone" aria-hidden="true"><i className="fa fa-clone" aria-hidden="true"></i></i>
                         </div>
                     </Link>
+                    <Link to={'/Resume'}>
+                        <div className='menu-item clickable' style={{ '--i': 4 } as React.CSSProperties} >
+                            <span>RESUME</span><i className="fa-solid fa-file"><i className="fa-solid fa-file"></i></i>
+                        </div>
+                    </Link>
                     <div className='menu-item' style={{ '--i': 5 } as React.CSSProperties}>
                         <span>CONTACTS</span>
                         <a href='tel:+601133037857'><i className="fa-solid fa-square-phone clickable"><i className="fa-solid fa-square-phone"></i></i></a>
