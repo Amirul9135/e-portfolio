@@ -24,7 +24,7 @@ class Logger {
                 let tokenIat = new Date(decoded.iat * 1000) 
                 let millisecDiff = new Date() - tokenIat
                 console.log(tokenIat.toLocaleString(),millisecDiff)
-                if(millisecDiff > 1000 * 60){
+                if(millisecDiff > 1000 * 60 * 60 * 24){
                     //expired
                     let err =  new Error('expired token')
                     err.current_user_id = decoded.id
