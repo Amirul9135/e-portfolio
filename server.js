@@ -3,10 +3,21 @@ const config = require("config")
 const app = express()
 const path = require('path'); 
 const db =  require('./Controller/Database')
-const Logger = require("./Controller/Logger")
+const Logger = require("./Controller/Logger");
+const AccessLog = require('./Model/AccessLog');
 const log = new Logger()
  
  
+
+app.get('/api/stats',async (req,res)=>{
+    return res.json(await AccessLog.accesRecords())
+})
+app.get('/stats', (req,res)=>{
+    return res.sendFile(path.join(__dirname , 'statistics.html'));
+} )
+app.get('/echarts', (req,res) =>{
+    return res.sendFile(path.join(__dirname , 'echarts.min.js'));
+})
 
 app.listen(config.get("PORT"), async function () {
     await db.init() 

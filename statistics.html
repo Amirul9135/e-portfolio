@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Statistics</title>
+</head>
+
+<body onload="setup()">
+
+    <div id="LineChart" style="height: 80vh;width: 100%;"></div>
+    <script src="echarts"></script>
+    <script>
+
+        var LineChart;
+        function setup() {
+            LineChart = echarts.init(document.getElementById('LineChart'))
+            LineChart.setOption(lineChartOption, true)
+            loadStats()
+        }
+        function loadStats(){
+            let resumeSeries = []
+            let portfolioSeries = []
+
+            request('GET','/api/stats').then((result)=>{ 
+                let data = JSON.parse(result) 
+                console.log(data)
+            }).catch((err)=>{
+                console.log(err)
+            })
+            
+        }
+
+        function newSeries(name, inpData) {
+            return {
+                name: name,
+                type: 'line',
+                smooth: true,
+                connectNulls: true,
+                data: inpData
+            }
+        }
+
+        var lineChartOption = {
+            legend: {
+                // Try 'horizontal'
+                type: 'scroll',
+                orient: 'horizontal',
+                right: 10,
+                formatter: function (name) {
+                    if (name.includes('<br>')) {
+                        name = name.split('<br>')
+                        name = name[0] + '\n' + name[1]
+                    }
+                    return name
+                }
+            }, grid: { containLabel: true },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (d) {
+                    let ttip = ""
+                    let tcount = 0
+                    let avg = 0
+                    let dt = null
+                    d.forEach(s => {
+                        if (!dt) {
+                            dt = s.data[0]
+                        }
+                        ttip += '<u style="color:' + s.color + '"><b>' + s.seriesName + "</u></b><br>Average Mark: "
+                            + s.data[1].toFixed(2) + "%<br>Student Count: " + s.data[2] + "<br>"
+
+                        avg += s.data[1]
+                        tcount += s.data[2]
+
+                    })
+                    ttip += "<br><b>Total Of " + tcount + " student" + ((tcount > 1) ? 's' : '') + "</b>"
+                    ttip += "<br><b>Overall Average Percentage: " + (avg / d.length).toFixed(1) + "%</b>"
+                    ttip += "<br><b>Date Assessed: " + new Date(dt).toLocaleDateString('en-GB', { timeZone: "Asia/Kuala_Lumpur" }) + "</b>"
+                    return ttip;
+
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'time'
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+            ]
+        }
+
+
+        
+    function request(method, url,data) {
+        //method: GET/POST etc
+        //url for path/routes/api
+        //data JSON OBJECT
+        //auth true for authentication required api/ false for public api
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url); 
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {//request finished
+                    if (xhr.status == 200) {//good request
+                        resolve(xhr.responseText);
+                    }
+                    else if (xhr.status == 401) {
+                        reject("unauthorized: " + xhr.responseText);
+                    }
+                    else {
+                        reject(xhr.responseText);
+                    }
+                }
+            }
+            if (data != null) {
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.send(JSON.stringify(data));
+            }
+            else {
+                xhr.send();
+            }
+        });
+    } 
+    </script>
+</body>
+
+</html>

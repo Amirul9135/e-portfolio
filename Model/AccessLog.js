@@ -6,7 +6,7 @@ module.exports = class AccessLog {
     IP
     date
     resource
-     save(){
+    save(){
         return db.queryParams('INSERT IGNORE INTO access_log (visitor,IP,date,resource) VALUES (' 
         + db.escape(this.id) + ',' + db.escape(this.IP) + ',' + db.escape(this.date) + ',' + db.escape(this.resource) + ')')
     }
@@ -25,5 +25,9 @@ module.exports = class AccessLog {
         return newAccess
 
         
+    }
+
+    static async accesRecords(){ 
+        return db.queryParams('SELECT * FROM access_log')
     }
 }
