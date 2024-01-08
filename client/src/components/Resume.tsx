@@ -1,13 +1,34 @@
 
 
-import React, { useEffect, useState, } from 'react';
-import profImg2 from '../images/profile-img2.png' 
-import { LinkBtn, LinkBtn2 } from './sub-components/LinkBtn'; 
+import React, { useEffect, useState, } from 'react'; 
+import { Viewer, Worker } from "@react-pdf-viewer/core";
+
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+
+
 
 const Resume: React.FC = () => {  
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
   return (
-    <React.Fragment>
-        <embed src= "/download/resume" width= "500" height= "375" type="application/pdf"></embed>
+    <React.Fragment> 
+        
+    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.js">
+      <div
+        style={{
+          height: "100%",
+          maxWidth: "100%",
+          marginLeft: "auto",
+          marginRight: "auto"
+        }}
+      >
+        <Viewer
+          fileUrl="/download/resume"
+          plugins={[defaultLayoutPluginInstance]}
+        />
+      </div>
+    </Worker>
     </React.Fragment>
   );
 };

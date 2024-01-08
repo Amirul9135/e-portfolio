@@ -27,6 +27,7 @@ app.listen(config.get("PORT"), async function () {
 
 app.get('/download/resume',log.checkToken(), function (req, res) {  
     //later count here how many download
+    console.log('donload')
     return res.download(path.join(__dirname, 'downloads', 'Resume Active (Dec 2023).pdf'), 'Resume Active (Dec 2023).pdf', (err) => {
         if (err) {
           // Handle errors
