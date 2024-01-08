@@ -1037,9 +1037,7 @@ $border-end-color: #00ff00; // End color of the gradient
  
 .skill-item{
   position: relative; 
-  margin: .5em;
-  .ico{ 
-  }
+  margin: .5em; 
   .text{ 
     .name{
       $gradient-scale: 30%; // Default gradient scale

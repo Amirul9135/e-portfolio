@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.d8609852.css",
-    "main.js": "/static/js/main.aedca7a8.js",
+    "main.css": "/static/css/main.cb79b2da.css",
+    "main.js": "/static/js/main.5725802b.js",
     "static/js/787.f198cce5.chunk.js": "/static/js/787.f198cce5.chunk.js",
     "static/media/WSHC.png": "/static/media/WSHC.51c99aca479071135677.png",
     "static/media/HomeDecor1.png": "/static/media/HomeDecor1.316d46f44926f2223015.png",
     "static/media/hero-bg.png": "/static/media/hero-bg.b2a564a17acd9b62c113.png",
     "static/media/formaid1.png": "/static/media/formaid1.af098780e891c1ca9b10.png",
+    "static/media/Resume.pdf": "/static/media/Resume.382dd0678a3b19b2e1f6.pdf",
     "static/media/formaid3.png": "/static/media/formaid3.a9b228f3a9870dbdaa22.png",
     "static/media/HomeDecor2.png": "/static/media/HomeDecor2.e4936b68c25388197209.png",
     "static/media/LFBD1.png": "/static/media/LFBD1.c57e9c3e454fb6358777.png",
@@ -40,12 +41,12 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.2eb7b3ef25042305f3ff.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/index.html",
-    "main.d8609852.css.map": "/static/css/main.d8609852.css.map",
-    "main.aedca7a8.js.map": "/static/js/main.aedca7a8.js.map",
+    "main.cb79b2da.css.map": "/static/css/main.cb79b2da.css.map",
+    "main.5725802b.js.map": "/static/js/main.5725802b.js.map",
     "787.f198cce5.chunk.js.map": "/static/js/787.f198cce5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8609852.css",
-    "static/js/main.aedca7a8.js"
+    "static/css/main.cb79b2da.css",
+    "static/js/main.5725802b.js"
   ]
 }

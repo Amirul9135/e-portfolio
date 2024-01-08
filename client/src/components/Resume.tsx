@@ -5,16 +5,15 @@ import { Viewer, Worker } from "@react-pdf-viewer/core";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
-
-
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";    
+import resumepdf from "../images/Resume.pdf"
 
 const Resume: React.FC = () => {  
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  return (
+  return ( 
     <React.Fragment> 
         
-    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.js">
+    <Worker workerUrl='https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.js'>
       <div
         style={{
           height: "100%",
@@ -24,7 +23,7 @@ const Resume: React.FC = () => {
         }}
       >
         <Viewer
-          fileUrl="/download/resume"
+          fileUrl={`${resumepdf}`}
           plugins={[defaultLayoutPluginInstance]}
         />
       </div>
