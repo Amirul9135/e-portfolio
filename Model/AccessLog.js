@@ -23,6 +23,9 @@ module.exports = class AccessLog {
        
         try{
             newAccess.IP = req.headers['x-real-ip']
+            if(!newAccess.IP)
+                throw new Error('not forwared by nginx')
+
             console.log("IP real", newAccess.IP)
         }catch(e){
             newAccess.IP = req.ip
