@@ -20,7 +20,13 @@ module.exports = class AccessLog {
         });
         //newAccess.date = newAccess.date.slice(0, -5) + '00:00'; // hourly diff only
         newAccess.date = newAccess.date.slice(0, -2) + '00'; // min diff only
-        newAccess.IP = req.ip
+       
+        try{
+            newAccess.IP = req.headers['x-real-ip']
+        }catch(e){
+            newAccess.IP = req.ip
+        }
+        
         console.log("IP", newAccess.IP)
         newAccess.resource = res
         newAccess.id = req.access_id
