@@ -18,7 +18,8 @@ module.exports = class AccessLog {
         }).replace(',', '') + " " + tmpdate.toLocaleTimeString('en-CA', {
             hourCycle: 'h23'
         });
-        newAccess.date = newAccess.date.slice(0, -5) + '00:00'; // hourly diff only
+        //newAccess.date = newAccess.date.slice(0, -5) + '00:00'; // hourly diff only
+        newAccess.date = newAccess.date.slice(0, -2) + '00'; // min diff only
         newAccess.IP = req.ip
         newAccess.resource = res
         newAccess.id = req.access_id

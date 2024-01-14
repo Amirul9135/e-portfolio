@@ -14,7 +14,7 @@ class Logger {
     checkToken(){
         //check token in cookie, if doesn't exist then issue new
         return async function (req, res, next) {
-            console.log('check token') 
+            console.log('check token header',req.headers) 
             try {
                 //try parse cookie, if anything wrong issue new
                 let token = req.headers.cookie.split('=')[1]  

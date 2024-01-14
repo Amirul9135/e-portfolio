@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, } from 'react'; 
-import {EventType,PROJECTSS} from '../GLOBAL'
+import {EventType,PROJECTNAME,PROJECTSS} from '../GLOBAL'
 import SortBtn from './sub-components/SortBtn';
 import ToggleBtn from './sub-components/ToggleBtn';
 import TimeLineItem from './sub-components/TimeLineItem';
@@ -28,6 +28,8 @@ import sprp2 from '../images/sprp2.png'
 import sprp3 from '../images/sprp3.png'
 import sprp4 from '../images/sprp4.png'
 import sprp5 from '../images/sprp5.png'
+import ScrollToId from './sub-components/ScrollToId';
+import { useLocation } from 'react-router-dom';
 
 const ProjectsPage: React.FC = () => {  
   const timelineItems = [     
@@ -42,7 +44,8 @@ const ProjectsPage: React.FC = () => {
         sprp3,
         sprp4,
         sprp5,
-      ]
+      ],
+      id:PROJECTNAME.SPRP
     },
     {
       title: "Homes Décor",
@@ -54,7 +57,8 @@ const ProjectsPage: React.FC = () => {
         HomeDecor2,
         HomeDecor3,
         HomeDecor4
-      ]
+      ],
+      id:PROJECTNAME.HomeDecor
     },
     {
       title: "Formaid",
@@ -68,7 +72,8 @@ const ProjectsPage: React.FC = () => {
         formaid1,
         formaid2,
         formaid3
-      ]
+      ],
+      id:PROJECTNAME.Formaid
 
     },
     {
@@ -78,7 +83,8 @@ const ProjectsPage: React.FC = () => {
       images:[
         SSBoard1,
         SSBoard2
-      ]
+      ],
+      id:PROJECTNAME.SSBoard
     },
     {
       title: "LifeBuddy",
@@ -90,7 +96,8 @@ const ProjectsPage: React.FC = () => {
         LFBD3,
         LFBD4
       ],
-      skills: PROJECTSS.LifeBuddy
+      skills: PROJECTSS.LifeBuddy,
+      id:PROJECTNAME.LifeBuddy
     },
     {
       title: "E-Namecard",
@@ -102,7 +109,8 @@ const ProjectsPage: React.FC = () => {
         {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Jason/'},
         {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Jessie/'},
         {text:'Namecard',url:'http://lookhere.sshitechss.com/e-namecard/Ken/'}
-      ]
+      ],
+      id:PROJECTNAME.ENamecard
     },
     {
       title: "BDO CMQ",
@@ -112,7 +120,8 @@ const ProjectsPage: React.FC = () => {
         {text:'BDOCMQ-GitHub',url:'https://github.com/Amirul9135/BDO_CMQ'}
       ],
       skills: PROJECTSS.BDOCMQ,
-      images:[BDOCMQ]
+      images:[BDOCMQ],
+      id:PROJECTNAME.BDOCMQ
     },
     {
       title: "SPMS (Student Performance Monitoring System)",
@@ -128,7 +137,8 @@ const ProjectsPage: React.FC = () => {
         {text:'SPMS',url:'http://www.amirulasraf.com/spms/'},
         {text:'SPMS-GitHub',url:'https://github.com/Amirul9135/SPMS_2.0'},
       ],
-      skills:PROJECTSS.SPMS
+      skills:PROJECTSS.SPMS,
+      id:PROJECTNAME.SPMS
     },
     {
       title: "HIS (Hospital Information System)",
@@ -144,7 +154,8 @@ const ProjectsPage: React.FC = () => {
         {text:'HIS-GitHub',url:'https://github.com/Amirul9135/stse_his'},
         {text:'Demo Video',url:'https://youtu.be/7VlNGMhSL-8?t=157'}
       ],
-      skills: PROJECTSS.HIS
+      skills: PROJECTSS.HIS,
+      id:PROJECTNAME.HIS
     },
     {
       title: "FUKURO (Fundamental Kernel Utilization Realtime Overseer)",
@@ -167,7 +178,8 @@ const ProjectsPage: React.FC = () => {
         FUKUROENV,
         FUKUROAC
       ],
-      skills: PROJECTSS.FUKURO
+      skills: PROJECTSS.FUKURO,
+      id:PROJECTNAME.FUKURO
     },
     {
       title: "SMKB",
@@ -179,14 +191,16 @@ const ProjectsPage: React.FC = () => {
         'Integration with Microsoft SQL Server'
       ],
       links:[ ],
-      skills:PROJECTSS.SMKB
+      skills:PROJECTSS.SMKB,
+      id:PROJECTNAME.SMKB
     },
     {
       title: "E-Portfolio",
       timerange: 'Ongoing', date: new Date(), type: EventType.Project,
       content: 'The e-portfolio project is this website which I developed in other to introduce myself and showcase my skills as part of my preparation before going into the industry',
       links:[{text:'E-Portfolio GitHub',url:'https://github.com/Amirul9135/e-portfolio'}],
-      skills:PROJECTSS.eportfolio
+      skills:PROJECTSS.eportfolio,
+      id:PROJECTNAME.eportfolio
     },   
     // Add more timeline items as needed
   ]
@@ -203,12 +217,37 @@ const ProjectsPage: React.FC = () => {
     });
     setSortedTimelineItems(sortedItems);
   }; 
+
+  
+  let location = useLocation()
   useEffect(() => {
     changeSorting();
+    
+     const scrollto = () => {
+      let ts = document.getElementById(location.hash.replace("#",''))
+      console.log('key', location.hash, ts)
+      if (ts) {
+          let pos = ts.getBoundingClientRect().top;
+         // ts.scrollIntoView({ behavior: 'smooth' })
+         setTimeout(()=>{
+          window.scrollTo({
+            top:pos,
+            behavior: 'smooth'
+          })
+         },1000)
+       
+          console.log('scrolling to',location.hash)
+      } 
+     }
+     
+     window.onload = scrollto
+     return () =>{
+      window.onload = null
+     }
   }, []);
 
 
-  console.log('now', ascending)
+  console.log('now', timelineItems)
   return (
     <React.Fragment> 
       <div className='contents'>
@@ -237,12 +276,14 @@ const ProjectsPage: React.FC = () => {
                   points={item.points}
                   links={item.links}
                   skills={item.skills}
+                  id={item.id}
                 />
               ))}
             </ul>
           </div>
         </div>
       </div>
+      <ScrollToId></ScrollToId>
     </React.Fragment>
   );
 }

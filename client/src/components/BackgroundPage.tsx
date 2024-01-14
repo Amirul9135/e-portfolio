@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, } from 'react'; 
-import {EventType,PROJECTSS} from '../GLOBAL'
+import {EventType,PROJECTNAME,PROJECTSS} from '../GLOBAL'
 import SortBtn from './sub-components/SortBtn';
 import ToggleBtn from './sub-components/ToggleBtn';
 import TimeLineItem from './sub-components/TimeLineItem';
@@ -10,6 +10,8 @@ import TimeLineItem from './sub-components/TimeLineItem';
 import WSHC from '../images/WSHC.png'
 import MIPBanner from '../images/MIPBanner.png'
 import CodeContest from '../images/CodeContest.jpeg' 
+import ScrollToId from './sub-components/ScrollToId';
+import { useLocation } from 'react-router-dom';
 
 const BackgroundPage: React.FC = () => {  
   const timelineItems = [
@@ -21,7 +23,7 @@ const BackgroundPage: React.FC = () => {
       points: [
         'Develop Account Payable module for SMKB (Sistem Maklumat Kewangan Bersepadu,UTEM)',
         'Develop web application interface and functionalities',
-        'Develop Back-end services development using ASP.NET web method and web API'],
+        'Develop Back-end services development using ASP.NET web method and web API'], 
         links:[],
         skills: PROJECTSS.SMKB 
     },
@@ -158,6 +160,7 @@ const BackgroundPage: React.FC = () => {
         break;
     }
   }
+  
   useEffect(() => {
     changeSorting();
   }, []);
@@ -202,7 +205,7 @@ const BackgroundPage: React.FC = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> 
     </React.Fragment>
   );
 }

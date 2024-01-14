@@ -12,7 +12,7 @@ import Resume from './Resume';
 
 
 const MainPage: React.FC = () => {
-    let location = useLocation();
+    var location = useLocation();
     var currentPath = location.pathname;
     console.log(currentPath)
     if (currentPath === '/' || currentPath === '') {
@@ -23,10 +23,8 @@ const MainPage: React.FC = () => {
     }
     else {
         document.title = "Amirul's" + currentPath.replace('/', ' ');
-    }
-    console.log(currentPath)
+    } 
     useEffect(() => {
-
         // Optionally return a cleanup function if needed
         return () => {
         };

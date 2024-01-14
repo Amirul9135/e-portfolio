@@ -1,3 +1,4 @@
+ 
 
 export enum EventType {
   Work,
@@ -56,6 +57,21 @@ export enum Skills {
   PHP = "PHP",
   DGO = "Digital Ocean"
 } 
+
+export enum PROJECTNAME {
+  SMKB = "SMKB",
+    eportfolio = "eportfolio",
+    FUKURO = "FUKURO",
+    HIS = "HIS",
+    SPMS = "SPMS",
+    BDOCMQ = "BDOCMQ",
+    ENamecard = "ENamecard",
+    Formaid = "Formaid",
+    HomeDecor = "HomeDecor",
+    LifeBuddy = "LifeBuddy",
+    SPRP = "SPRP",
+    SSBoard = "SSBoard"
+}
 export namespace PROJECTSS {
  export const SMKB = [Skills.ASPNET, Skills.VBNET, Skills.HTML,Skills.BootStrap,Skills.JavaScript, Skills.JQuery, Skills.MsSQL]
  export const eportfolio = [Skills.React,Skills.TypeScript, Skills.SCSS, Skills.HTML, Skills.DGO]
@@ -106,17 +122,17 @@ export class Skill {
 }
 
 export const ProjectList = new Array<Project>() 
-ProjectList.push(new Project("SMKB",PROJECTSS.SMKB))
-ProjectList.push(new Project("E-Portfolio",PROJECTSS.eportfolio))
-ProjectList.push(new Project("FUKURO",PROJECTSS.FUKURO))
-ProjectList.push(new Project("HIS",PROJECTSS.HIS))
-ProjectList.push(new Project("SPMS",PROJECTSS.SPMS))
-ProjectList.push(new Project("BDOCMQ",PROJECTSS.BDOCMQ))
-ProjectList.push(new Project("E-Namecard",PROJECTSS.ENamecard))
-ProjectList.push(new Project("Formaid", PROJECTSS.Formaid))
-ProjectList.push(new Project("HomeDecor",PROJECTSS.HomeDecor))
-ProjectList.push(new Project("LifeBuddy",PROJECTSS.LifeBuddy))
-ProjectList.push(new Project("SPRP",PROJECTSS.SPRP))       
+ProjectList.push(new Project(PROJECTNAME.SMKB,PROJECTSS.SMKB))
+ProjectList.push(new Project(PROJECTNAME.eportfolio,PROJECTSS.eportfolio))
+ProjectList.push(new Project(PROJECTNAME.FUKURO,PROJECTSS.FUKURO))
+ProjectList.push(new Project(PROJECTNAME.HIS,PROJECTSS.HIS))
+ProjectList.push(new Project(PROJECTNAME.SPMS,PROJECTSS.SPMS))
+ProjectList.push(new Project(PROJECTNAME.BDOCMQ,PROJECTSS.BDOCMQ))
+ProjectList.push(new Project(PROJECTNAME.ENamecard,PROJECTSS.ENamecard))
+ProjectList.push(new Project(PROJECTNAME.Formaid, PROJECTSS.Formaid))
+ProjectList.push(new Project(PROJECTNAME.HomeDecor,PROJECTSS.HomeDecor))
+ProjectList.push(new Project(PROJECTNAME.LifeBuddy,PROJECTSS.LifeBuddy))
+ProjectList.push(new Project(PROJECTNAME.SPRP,PROJECTSS.SPRP))       
 
 function filterProject(skilname:Skills){
   let tmpsubarr = new Array<Project>()
@@ -174,6 +190,4 @@ function MaxProjectCount():number{
 
 export const MAXProjectCount = MaxProjectCount()
 
-
-console.log(SkillList)
 export default { EventType, Skills, EventTypeClass, PROJECTSS, Skill }

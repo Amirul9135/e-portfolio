@@ -13,12 +13,12 @@ interface TimeLineItemProp {
     points?: string[]
     links?: { text: string, url: string }[],
     skills?: Skills[],
+    id?:string,
 
     
 }
 
-const TimeLineItem: React.FC<TimeLineItemProp> = ({ timerange, content, images, type, title, points, links,skills }) => {
-    
+const TimeLineItem: React.FC<TimeLineItemProp> = ({ timerange, content, images, type, title,id, points, links,skills }) => { 
     const showImg = (e: HTMLImageElement) => { 
         let imgmodal = document.getElementById('img-modal');
         if (imgmodal) {
@@ -35,7 +35,7 @@ const TimeLineItem: React.FC<TimeLineItemProp> = ({ timerange, content, images, 
                     (type === EventType.Event) ? 'fa-solid fa-users-rectangle' : ''
     return (
         <React.Fragment>
-            <li className={EventTypeClass(type)}>
+            <li className={EventTypeClass(type)}  id={id}>
                 <div className='timerange'><i className={`${ico} glowIcon`} aria-hidden="true"><i className={`${ico}`} aria-hidden="true"></i></i><p>{timerange}</p></div>
                 <div className='sub-header'><h4>{title}</h4></div>
                 <div className='desc'>{content}
