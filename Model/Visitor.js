@@ -19,7 +19,16 @@ module.exports = class Visitor {
         })
         return token
     }
-
+    async exist(){
+        let res = await db.query('SELECT * FROM visitor where id=' + db.escape(this.id)) 
+        console.log('exist',res,res.length)
+        if(res.length > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
 
     static async logNew() {
         let n = new Visitor()
@@ -27,4 +36,5 @@ module.exports = class Visitor {
         n.id = result.insertId
         return n
     }
+ 
 }
