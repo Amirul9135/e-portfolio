@@ -8,7 +8,7 @@ const AccessLog = require('./Model/AccessLog');
 const log = new Logger()
  
  
-
+app.set('trust proxy',true); 
 app.get('/api/stats',async (req,res)=>{
     return res.json(await AccessLog.accesRecords())
 })
