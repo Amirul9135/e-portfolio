@@ -19,7 +19,8 @@ module.exports = class AccessLog {
             hourCycle: 'h23'
         });
         //newAccess.date = newAccess.date.slice(0, -5) + '00:00'; // hourly diff only
-        newAccess.date = newAccess.date.slice(0, -2) + '00'; // min diff only
+        newAccess.date = newAccess.date.slice(0, -4) + '0:00'; // tens of min diff only
+       // newAccess.date = newAccess.date.slice(0, -2) + '00'; // min diff only
        
         try{
             newAccess.IP = req.headers['x-real-ip']
