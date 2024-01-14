@@ -5,34 +5,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Access Statistics</title>
+
+    <link href="bscss" rel="stylesheet" />
+    <link href="dtcss" rel="stylesheet" />
 </head>
 
 <body onload="setup()">
+    <div class="row justify-content-around">
+        <div class="col-12 mt-2 mb-2">
+            <h1 class="text-center">Access Statistics</h1>
+            <hr>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <label for="groupBy" class="col-4"> Group By </label>
 
-    <div id="LineChart" style="height: 80vh;width: 100%;"></div>
+
+                <select class="form-control col-7" id="groupBy" onchange="changeGroup()">
+                    <option value="1">10 Minute</option>
+                    <option value="2">30 Minute</option>
+                    <option value="3">1 Hour</option>
+                    <option value="4">1 Day</option>
+                    <option value="5">1 Week</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+
+            <div id="LineChart" style="height: 80vh;width: 100%;"></div>
+
+            <h3 class="text-center">Access Over Time</h3>
+            <hr>
+        </div>
+        <div class="col-6">
+            <h3 class="text-center">Access Log</h3>
+            <div class="table-responsive">
+                <table id="dtbAccess" class="table table-bordered table-hover text-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th>Visitor ID</th>
+                            <th>Date Time</th>
+                            <th>IP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3 class="text-center">Activity Log</h3>
+            <div class="table-responsive">
+                <table id="dtbActivity" class="table table-bordered table-hover text-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Path</th>
+                            <th>Duration (Seconds)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="jquery"></script>
+    <script src="dtjs"></script>
+
     <script src="echarts"></script>
+    <script src="bsjs"></script>
     <script>
-
+        var dtbAccess
+        var dtbActivity
         var LineChart;
+        var grouping = 600000
         function setup() {
             LineChart = echarts.init(document.getElementById('LineChart'))
             LineChart.setOption(lineChartOption, true)
+
+            dtbAccess = new DataTable("#dtbAccess")
+            dtbActivity = new DataTable("#dtbActivity")
+
+
+            loadStats()
+            redrawChart()
+        }
+
+        function changeGroup() {
+            let val = document.getElementById('groupBy').value
+            if (val == '1')
+                grouping = 600000
+            if (val == '2')
+                grouping = 1800000
+            if (val == '3')
+                grouping = 3600000
+            if (val == '4')
+                grouping = 86400000
+            if (val == '5')
+                grouping = 604800000
+
+            lineChartOption.series = []
             loadStats()
         }
-        function loadStats(){
+
+        function loadactivity(e){
+            console.log(e.target.parentElement.tagName) 
+            let target = e.target
+            while(target.tagName !== "TR"){
+                target = target.parentElement
+            }
+            console.log('oad act',target.id,target.dataset.tstamp)
+            
+            request('GET', '/api/activity?v='+ target.id +'&ts='+target.dataset.tstamp).then((result) => {
+                dtbActivity.clear()
+                result = JSON.parse(result)
+                console.log(result)
+                calcActivityDura(result)
+                result.forEach(d=>{
+                    let tmpdt = new Date(d.dateTime)
+                    let tmrw = dtbActivity.row.add([
+                    tmpdt.toLocaleDateString('en-GB') + ' ' + tmpdt.toLocaleTimeString('en-GB'),
+                        d.pathname,
+                        (d.duration)? d.duration : 'Unknown'
+                    ])
+                })
+                dtbActivity.draw()
+            })
+        }
+
+        function calcActivityDura(arrData){
+            for (var i = 0; i < arrData.length - 1; i++) {
+                if(arrData[i+1]){
+                    arrData[i].duration = Math.abs(new Date(arrData[i].dateTime) - new Date(arrData[i+1].dateTime)) / 1000
+                }
+            }
+        }
+        function loadStats() {
             let resumeSeries = []
             let portfolioSeries = []
 
-            request('GET','/api/stats').then((result)=>{ 
-                let data = JSON.parse(result) 
+            request('GET', '/api/stats').then((result) => {
+                let data = JSON.parse(result)
                 console.log(data)
-            }).catch((err)=>{
+
+
+
+                let converted = []
+
+                dtbAccess.clear();
+
+                data.forEach(res => {
+                    converted.push([res.date, 1])
+
+
+
+                    let tmpdt = new Date(res.date)
+                    let tmpRow = dtbAccess.row.add([
+                        res.visitor,
+                        tmpdt.toLocaleDateString('en-GB') + ' ' + tmpdt.toLocaleTimeString('en-GB'),
+                        res.IP
+                    ]).node()
+                    tmpRow.id = res.visitor; //letak id 
+                    tmpRow.dataset.tstamp = res.date
+                    tmpRow.onclick = loadactivity
+                })
+
+                dtbAccess.draw();
+                console.log(converted)
+                let sr = newSeries("Access", converted)
+
+
+                lineChartOption.series.push(sr)
+                redrawChart()
+            }).catch((err) => {
                 console.log(err)
             })
-            
+
         }
 
         function newSeries(name, inpData) {
+            MergeDate(inpData)
+            console.log('merged', inpData)
             return {
                 name: name,
                 type: 'line',
@@ -41,7 +196,28 @@
                 data: inpData
             }
         }
+        function MergeDate(arrData) {
+            //merge by date average percent total count
+            let norm = false
+            while (!norm) {
+                for (var i = 1; i < arrData.length; i++) {
+                    let currentDate = new Date(arrData[i][0]);
+                    let prevDate = new Date(arrData[i - 1][0]);
+                    if (Math.abs(currentDate.getTime() - prevDate.getTime()) <= grouping) {
+                        arrData[i - 1][1] = arrData[i][1] + arrData[i - 1][1]
+                        arrData.splice(i, 1);
+                        MergeDate(arrData)
+                        break;
+                    }
+                }
+                norm = true
+            }
+        }
 
+        function redrawChart() {
+            console.log('redraw')
+            LineChart.setOption(lineChartOption, true)
+        }
         var lineChartOption = {
             legend: {
                 // Try 'horizontal'
@@ -67,16 +243,14 @@
                         if (!dt) {
                             dt = s.data[0]
                         }
-                        ttip += '<u style="color:' + s.color + '"><b>' + s.seriesName + "</u></b><br>Average Mark: "
-                            + s.data[1].toFixed(2) + "%<br>Student Count: " + s.data[2] + "<br>"
+                        ttip += '<u style="color:' + s.color + '"><b>' + s.seriesName + "</u></b><br>Count: "
+                            + s.data[1] + "<br>"
 
-                        avg += s.data[1]
-                        tcount += s.data[2]
+                        tcount += s.data[1]
 
                     })
-                    ttip += "<br><b>Total Of " + tcount + " student" + ((tcount > 1) ? 's' : '') + "</b>"
-                    ttip += "<br><b>Overall Average Percentage: " + (avg / d.length).toFixed(1) + "%</b>"
-                    ttip += "<br><b>Date Assessed: " + new Date(dt).toLocaleDateString('en-GB', { timeZone: "Asia/Kuala_Lumpur" }) + "</b>"
+                    ttip += "<br><b>Total Of " + tcount + " Access </b>"
+                    ttip += "<br><b>Date : " + new Date(dt).toLocaleDateString('en-GB') + " " + new Date(dt).toLocaleTimeString('en-GB') + "</b>"
                     return ttip;
 
                 }
@@ -98,37 +272,37 @@
         }
 
 
-        
-    function request(method, url,data) {
-        //method: GET/POST etc
-        //url for path/routes/api
-        //data JSON OBJECT
-        //auth true for authentication required api/ false for public api
-        return new Promise(function (resolve, reject) {
-            var xhr = new XMLHttpRequest();
-            xhr.open(method, url); 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4) {//request finished
-                    if (xhr.status == 200) {//good request
-                        resolve(xhr.responseText);
-                    }
-                    else if (xhr.status == 401) {
-                        reject("unauthorized: " + xhr.responseText);
-                    }
-                    else {
-                        reject(xhr.responseText);
+
+        function request(method, url, data) {
+            //method: GET/POST etc
+            //url for path/routes/api
+            //data JSON OBJECT
+            //auth true for authentication required api/ false for public api
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.open(method, url);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {//request finished
+                        if (xhr.status == 200) {//good request
+                            resolve(xhr.responseText);
+                        }
+                        else if (xhr.status == 401) {
+                            reject("unauthorized: " + xhr.responseText);
+                        }
+                        else {
+                            reject(xhr.responseText);
+                        }
                     }
                 }
-            }
-            if (data != null) {
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.send(JSON.stringify(data));
-            }
-            else {
-                xhr.send();
-            }
-        });
-    } 
+                if (data != null) {
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.send(JSON.stringify(data));
+                }
+                else {
+                    xhr.send();
+                }
+            });
+        } 
     </script>
 </body>
 

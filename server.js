@@ -16,6 +16,16 @@ app.get('/api/stats',async (req,res)=>{
     return res.json(await AccessLog.accesRecords())
 })
 
+
+app.get('/api/activity',async (req,res)=>{
+    try{
+        return res.json(await AccessLog.activityLogList(req.query.v,req.query.ts))
+
+    }catch(e){
+        return res.status(500).json(e)
+    }
+})
+
 app.post('/api/log/path',log.checkToken(),  async(req,res)=>{
     console.log(req.body)
     req.visitor.logActivity(req.body.path)
@@ -25,7 +35,22 @@ app.get('/stats', (req,res)=>{
     return res.sendFile(path.join(__dirname , 'statistics.html'));
 } )
 app.get('/echarts', (req,res) =>{
-    return res.sendFile(path.join(__dirname , 'echarts.min.js'));
+    return res.sendFile(path.join(__dirname ,'Plugin',  'echarts.min.js'));
+}) 
+app.get('/bsjs', (req,res) =>{
+    return res.sendFile(path.join(__dirname ,'client', 'node_modules', 'bootstrap','dist','js', 'bootstrap.js'));
+})
+app.get('/bscss', (req,res) =>{
+    return res.sendFile(path.join(__dirname ,'client', 'node_modules', 'bootstrap','dist','css', 'bootstrap.css'));
+})
+app.get('/dtjs', (req,res) =>{
+    return res.sendFile(path.join(__dirname ,'Plugin','datatable',  'datatable.min.js'));
+})
+app.get('/dtcss', (req,res) =>{
+    return res.sendFile(path.join(__dirname ,'Plugin','datatable',  'datatable.min.css'));
+})
+app.get('/jquery', (req,res) =>{
+    return res.sendFile(path.join(__dirname ,'Plugin',   'jquery-3.4.1.min.js'));
 })
 
 app.listen(config.get("PORT"), async function () {
