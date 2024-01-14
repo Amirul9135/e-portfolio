@@ -23,11 +23,12 @@ module.exports = class AccessLog {
        
         try{
             newAccess.IP = req.headers['x-real-ip']
+            console.log("IP real", newAccess.IP)
         }catch(e){
             newAccess.IP = req.ip
+            console.log("IP", newAccess.IP)
         }
         
-        console.log("IP", newAccess.IP)
         newAccess.resource = res
         newAccess.id = req.access_id
         return newAccess
