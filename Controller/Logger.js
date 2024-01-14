@@ -40,7 +40,7 @@ class Logger {
                 if(id){
                     visitor = new Visitor()
                     visitor.id = id
-                    if(!visitor.exist()){
+                    if(!await visitor.exist()){
                         visitor = await Visitor.logNew()
                     }
                 }
