@@ -8,9 +8,18 @@ const AccessLog = require('./Model/AccessLog');
 const log = new Logger()
  
  
+app.use(express.json({ extended: false }));
 app.set('trust proxy',true); 
+
+
 app.get('/api/stats',async (req,res)=>{
     return res.json(await AccessLog.accesRecords())
+})
+
+app.post('/api/log/path',log.checkToken(),  async(req,res)=>{
+    console.log(req.body)
+    req.visitor.logActivity(req.body.path)
+    return res.json()
 })
 app.get('/stats', (req,res)=>{
     return res.sendFile(path.join(__dirname , 'statistics.html'));

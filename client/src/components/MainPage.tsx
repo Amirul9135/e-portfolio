@@ -3,17 +3,29 @@ import React, { useEffect, useState } from 'react';
 import NavMenu from './NavMenu';
 import About from './About';
 import WIP from './WIP';
-import { useLocation } from 'react-router-dom';
+import { useLocation  } from 'react-router-dom';
 import BackgroundPage from './BackgroundPage';
 import ImgModal from './sub-components/ImgModal';
 import SkillsPage from './SkillsPage';
 import ProjectsPage from './ProjectsPage';
-import Resume from './Resume';
+import Resume from './Resume'; 
+import CurrentPath from '../model/CurPath';
 
 
-const MainPage: React.FC = () => {
-    var location = useLocation();
+interface IProps {
+    pathObject:CurrentPath; 
+}
+
+
+
+const MainPage: React.FC<IProps> = ({pathObject}) => {
+    var location = useLocation();  
     var currentPath = location.pathname;
+    if(pathObject.pathname != currentPath){
+        pathObject.pathname = currentPath
+        pathObject.log()
+        console.log('update previous', pathObject.pathname)
+    }
     console.log(currentPath)
     if (currentPath === '/' || currentPath === '') {
         currentPath = '/About'
@@ -24,11 +36,11 @@ const MainPage: React.FC = () => {
     else {
         document.title = "Amirul's" + currentPath.replace('/', ' ');
     } 
-    useEffect(() => {
+    useEffect(() => { 
         // Optionally return a cleanup function if needed
         return () => {
         };
-    }, []);
+    }, [location]);
     return (
         <React.Fragment>
             {(currentPath === '/About') ? (

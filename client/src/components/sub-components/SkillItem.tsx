@@ -18,7 +18,7 @@ const SkillItem: React.FC<IProps> = ({ skill }) => {
                         <i className="fa-solid fa-code"></i>
                     </div>
                     <div className='text col-11'>
-                        <div className='name' style={{ '--p': `${skill.project.length / MAXProjectCount * 50}%` } as React.CSSProperties}>
+                        <div className='name' style={{ '--p': `${skill.project.length / MAXProjectCount * 70}%` } as React.CSSProperties}>
                             {skill.name}
                         </div>
                         <div className='count'>

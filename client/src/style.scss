@@ -1048,7 +1048,7 @@ $border-end-color: #00ff00; // End color of the gradient
         position: absolute;
         left    : 0; 
         height  : 1px;
-        width   : calc(50% + var(--p)) ;  /* percentage of the element width*/ 
+        width   : calc(30% + var(--p)) ;  /* percentage of the element width*/ 
         border-bottom:2px dashed $FCcolor; 
         margin-top:1.5em; /*move the border below the text*/ 
       }

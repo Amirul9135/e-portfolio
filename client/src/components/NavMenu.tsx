@@ -14,7 +14,8 @@ const NavMenu: React.FC = () => {
     start.x = event.changedTouches[0].pageX;
     start.y = event.changedTouches[0].pageY;
   }
-  
+   
+
   function touchEnd(event:TouchEvent) {
     let offset = {x:0, y:0};
   
@@ -92,9 +93,9 @@ const NavMenu: React.FC = () => {
                     </Link>
                     <div className='menu-item' style={{ '--i': 5 } as React.CSSProperties}>
                         <span>CONTACTS</span>
-                        <a href='tel:+601133037857'><i className="fa-solid fa-square-phone clickable"><i className="fa-solid fa-square-phone"></i></i></a>
-                        <a href='https://wa.me/+601133037857?text=Hello%20Amirul' target='_blank'><i className="fa-brands fa-square-whatsapp clickable"><i className="fa-brands fa-square-whatsapp"></i></i></a> 
-                       <a href='mailto:amirul.asraf9135@gmail.com'><i className="fa-solid fa-square-envelope clickable"><i className="fa-solid fa-square-envelope"></i></i></a>
+                        <a href='tel:+601133037857' ><i className="fa-solid fa-square-phone clickable"><i className="fa-solid fa-square-phone"></i></i><span>011-33037857</span></a>
+                        <a href='https://wa.me/+601133037857?text=Hello%20Amirul' target='_blank'><i className="fa-brands fa-square-whatsapp clickable"><i className="fa-brands fa-square-whatsapp"></i></i><span>011-33037857</span></a> 
+                       <a href='mailto:amirul.asraf9135@gmail.com'><i className="fa-solid fa-square-envelope clickable"><i className="fa-solid fa-square-envelope"></i></i><span>amirul.asraf9135@gmail.com</span></a>
                     </div>
                     <div className='menu-item' style={{ '--i': 6 } as React.CSSProperties}>
                         <span>FIND ME</span>

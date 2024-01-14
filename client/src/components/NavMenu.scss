@@ -169,7 +169,27 @@ $menuFC:rgba($color: #149ddd, $alpha: 1);
              top: 0;
           }
        }
-       span{ 
+       a > span{
+         display: inline-block;
+         vertical-align: middle;
+         background-color:  $menuBG;
+         font-size: .5em;  
+         width: 0;
+         height: 0;
+         transform: scale(0,0);
+         transform-origin: left;
+         overflow: hidden; 
+         transition: all .5s ;
+       } 
+       a:hover > span{ 
+         color: $menuFC;
+         padding-left: 2px;
+         padding-right: 2px;
+         width: initial;
+         height: initial;
+         transform: scale(1,1);
+       }
+       > span{ 
          background-color: $menuBG; 
          position: absolute;
          left: 0;

@@ -13,14 +13,11 @@ class Logger {
     }
     checkToken(){
         //check token in cookie, if doesn't exist then issue new
-        return async function (req, res, next) {
-            console.log('check token header',req.headers) 
+        return async function (req, res, next) { 
             try {
                 //try parse cookie, if anything wrong issue new
-                let token = req.headers.cookie.split('=')[1]  
-                console.log('cur token',token)
-                let decoded = jwt.verify(config.get('jwtHead') + '.' + token, config.get('JWTSecret'));  
-                console.log('decoded',decoded)
+                let token = req.headers.cookie.split('=')[1]   
+                let decoded = jwt.verify(config.get('jwtHead') + '.' + token, config.get('JWTSecret'));   
                 let tokenIat = new Date(decoded.iat * 1000) 
                 let millisecDiff = new Date() - tokenIat
                 console.log(tokenIat.toLocaleString(),millisecDiff)
@@ -31,7 +28,9 @@ class Logger {
                     err.current_user_id = decoded.id
                     throw(err)
                 }
-                req.access_id = decoded.id
+                let visitor = new Visitor()
+                visitor.id = decoded.id
+                req.visitor = visitor
 
             } catch (error) {
                 console.log('bad token',error) 
@@ -53,7 +52,7 @@ class Logger {
                     httpOnly: true,
                     // other options...
                   });
-                req.access_id = visitor.id
+                req.visitor = visitor
             } 
             return next();  
         }

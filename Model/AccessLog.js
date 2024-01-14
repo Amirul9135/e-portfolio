@@ -34,7 +34,7 @@ module.exports = class AccessLog {
         }
         
         newAccess.resource = res
-        newAccess.id = req.access_id
+        newAccess.id = req.visitor.id
         return newAccess
 
         
