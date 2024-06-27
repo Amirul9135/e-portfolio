@@ -34,8 +34,8 @@ const About: React.FC = () => {
           <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;Born in 18 December 1999, I am now {age} years old.</p>
           <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I got diploma in information technology from UTHM, Johor in 2020.</p>
           <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I'm in my final year of degree in Computer Science(Software Development) at UTEM, Melaka.</p>
-          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I'm also working as part time programmer in Pusat Perkhidmatan Pengetahuan Dan Komunikasi, UTEM.</p>
-          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for my upcoming internship placement in March 2024.</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;I'm currently undergoing my internship as application developer at Singularity Aerotech Asia (SAT).</p>
+          <p><i className="fa-solid fa-angles-right glowIcon"><i className="fa-solid fa-angles-right"></i></i>&nbsp;&nbsp;Currently seeking oppoturnity for software development related position. available to start on September 2024</p>
         </div> 
         <div id='journey' className='row' >
           <div className='sect-title'><h2><p>My Journey</p><div><i className="fa-solid fa-person-running glowIcon"><i className="fa-solid fa-person-running"></i></i></div></h2></div>

@@ -5,7 +5,8 @@ import SortBtn from './sub-components/SortBtn';
 import ToggleBtn from './sub-components/ToggleBtn';
 import TimeLineItem from './sub-components/TimeLineItem';
 
- 
+import EAASE_MTECH from '../images/EAASE_MTech.jpeg'
+import EAASE_IOT from '../images/EAASE_IOT.png'
 import FUKUROAC from '../images/FUKURO_AC.png'
 import FUKUROENV from '../images/FUKURO_ENV.png'
 import FUKURODemo from '../images/FUKUROdemo.jpg'
@@ -183,7 +184,7 @@ const ProjectsPage: React.FC = () => {
     },
     {
       title: "SMKB",
-      timerange: 'Ongoing', date: new Date(), type: EventType.Project,
+      timerange: 'Feb 2024', date: new Date(2024, 1, 1), type: EventType.Project,
       content: 'Sistem Maklumat Kewangan Bersepadu is a web-based financial management system. As part-time programmer, I was tasked to develop the account payable module from back-end to front-end which involves:',
       points:[
         'Web interface design',
@@ -194,6 +195,22 @@ const ProjectsPage: React.FC = () => {
       skills:PROJECTSS.SMKB,
       id:PROJECTNAME.SMKB
     },
+    {
+      title: "EAASE",
+      timerange: 'Ongoing', date: new Date(), type: EventType.Project,
+      content: "EAASE is an online CNC machine leasing platform I'm developing during my internship at Singularity Aerotech Asia. I was involved as full stack developer assigned to multiple modules including IOT dashboard which is integrated with another IOT based monitoring moddule developed by the team.",
+      links:[{text:'EAASE',url:'https://singularityaerotech.asia/eaase/'}],
+      points:[
+        'Full stack web application development',
+        'Payment gateway integration', 
+      ],      
+      images:[
+        EAASE_IOT,
+        EAASE_MTECH
+      ],
+      skills:PROJECTSS.EAASE,
+      id:PROJECTNAME.EAASE
+    }, 
     {
       title: "E-Portfolio",
       timerange: 'Ongoing', date: new Date(), type: EventType.Project,

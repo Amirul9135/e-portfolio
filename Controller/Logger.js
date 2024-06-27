@@ -6,6 +6,9 @@ const AccessLog = require('../Model/AccessLog')
 class Logger {
     static Resume = 1
     static Potfolio = 2
+    static knownCrawlerUserAgents = [
+        'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot', 'Sogou', 'Exabot', 'facebot', 'ia_archiver'
+    ];
  
     async record(IP,resType) {
         let log = await AccessLog.newRecord(IP,resType)
@@ -14,6 +17,11 @@ class Logger {
     checkToken(){
         //check token in cookie, if doesn't exist then issue new
         return async function (req, res, next) { 
+            let userAgent = req.headers['user-agent'];
+            if (Logger.knownCrawlerUserAgents.some(crawler => userAgent.includes(crawler))) {
+                console.log('Crawler detected:', userAgent);
+                return next();
+            }
             try {
                 //try parse cookie, if anything wrong issue new
                 let token = req.headers.cookie.split('=')[1]   

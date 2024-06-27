@@ -16,8 +16,20 @@ import { useLocation } from 'react-router-dom';
 const BackgroundPage: React.FC = () => {  
   const timelineItems = [
     {
+      title: "Application Developer Intern",
+      timerange: 'March 2024 - Present', date: new Date(), type: EventType.Work,
+      images: [],
+      content: 'I undergo my internship for my bachelor degree studies at Singularity Aerotech Asia (SAT) located at Damansara Perdana, Petaling Jaya an aero tech company with its on in house IT department in charge of system development for their own or partners',
+      points: [
+        'Involved in development of a web based CNC machine leasing platform',
+        'Full stack web application development',
+        'Payment gateway integration'], 
+        links:[{text:'EAASE',url:'https://singularityaerotech.asia/eaase/'},{text:'SAT',url:'https://singularityaerotech.asia/'}],
+        skills: PROJECTSS.EAASE 
+    },
+    {
       title: "Part-Time Programmer, CIO UTEM",
-      timerange: 'June 2023 - Present', date: new Date(), type: EventType.Work,
+      timerange: 'June 2023 - Feb 2024', date: new Date(2019, 1, 1), type: EventType.Work,
       images: [],
       content: 'As a part time programmer I was given the oppoturnity to join the development team to develop SMKB which is a financial system to be used by UTEM',
       points: [

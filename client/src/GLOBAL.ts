@@ -55,7 +55,10 @@ export enum Skills {
   Vuforia = "Vuforia",
   AR = "AR",
   PHP = "PHP",
-  DGO = "Digital Ocean"
+  DGO = "Digital Ocean",
+  Laravel = "Laravel",
+  Livewire = "Livewire",
+  ORM = "Object-Relational Mapper"
 } 
 
 export enum PROJECTNAME {
@@ -70,7 +73,8 @@ export enum PROJECTNAME {
     HomeDecor = "HomeDecor",
     LifeBuddy = "LifeBuddy",
     SPRP = "SPRP",
-    SSBoard = "SSBoard"
+    SSBoard = "SSBoard",
+    EAASE = "EAASE"
 }
 export namespace PROJECTSS {
  export const SMKB = [Skills.ASPNET, Skills.VBNET, Skills.HTML,Skills.BootStrap,Skills.JavaScript, Skills.JQuery, Skills.MsSQL]
@@ -84,6 +88,7 @@ export namespace PROJECTSS {
  export const HomeDecor = [Skills.CSharp,Skills.Unity,Skills.Vuforia,Skills.AR]
  export const LifeBuddy = [Skills.HTML,Skills.CSS,Skills.JavaScript,Skills.CSharp]
  export const SPRP = [Skills.HTML,Skills.CSS,Skills.JavaScript,Skills.PHP,Skills.MySQL]
+ export const EAASE = [Skills.Laravel, Skills.Livewire, Skills.PHP, Skills.CSS, Skills.HTML, Skills.JavaScript, Skills.ORM]
  
 };
 export class Project{
@@ -133,6 +138,7 @@ ProjectList.push(new Project(PROJECTNAME.Formaid, PROJECTSS.Formaid))
 ProjectList.push(new Project(PROJECTNAME.HomeDecor,PROJECTSS.HomeDecor))
 ProjectList.push(new Project(PROJECTNAME.LifeBuddy,PROJECTSS.LifeBuddy))
 ProjectList.push(new Project(PROJECTNAME.SPRP,PROJECTSS.SPRP))       
+ProjectList.push(new Project(PROJECTNAME.EAASE,PROJECTSS.EAASE))       
 
 function filterProject(skilname:Skills){
   let tmpsubarr = new Array<Project>()
@@ -176,6 +182,9 @@ SkillList.push(generateSkill(Skills.Vuforia,SkillCategory.FR))
 SkillList.push(generateSkill(Skills.AR,SkillCategory.OT))
 SkillList.push(generateSkill(Skills.PHP,SkillCategory.PR))
 SkillList.push(generateSkill(Skills.DGO,SkillCategory.OT))
+SkillList.push(generateSkill(Skills.Laravel,SkillCategory.FR))
+SkillList.push(generateSkill(Skills.Livewire,SkillCategory.FR))
+SkillList.push(generateSkill(Skills.ORM,SkillCategory.OT))
 
 
 function MaxProjectCount():number{

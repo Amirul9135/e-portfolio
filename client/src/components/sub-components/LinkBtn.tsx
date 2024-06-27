@@ -9,7 +9,7 @@ interface IProps {
 
 const LinkBtn: React.FC<IProps> = ({text:txt, redirectTo:path}) => { 
     return (
-        <Link   to={path} className='linkbtn'>
+        <Link   to={path} target="_blank" className='linkbtn'>
              <div className='lbcontainer'><button className='glowing-btn'><span className='glowing-txt'>{txt}</span></button>   </div>
         </Link> 
     );
@@ -17,7 +17,7 @@ const LinkBtn: React.FC<IProps> = ({text:txt, redirectTo:path}) => {
 
 const LinkBtn2: React.FC<IProps> = ({text:txt, redirectTo:path}) => { 
     return (
-        <Link  to={path} className='linkbtn2'>
+        <Link  to={path} target="_blank" className='linkbtn2'>
               <button style={{"--clr":"#0FF0FC"} as React.CSSProperties}><span>{txt}</span><i></i></button>
         </Link > 
     );

@@ -28,7 +28,9 @@ app.get('/api/activity',async (req,res)=>{
 
 app.post('/api/log/path',log.checkToken(),  async(req,res)=>{
     console.log(req.body)
-    req.visitor.logActivity(req.body.path)
+    if(req.visitor){
+        req.visitor.logActivity(req.body.path)
+    }
     return res.json()
 })
 app.get('/stats', (req,res)=>{
