@@ -1,12 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.90a36da4.css",
-    "main.js": "/static/js/main.e3e25062.js",
+    "main.js": "/static/js/main.f396cc7a.js",
     "static/media/WSHC.png": "/static/media/WSHC.51c99aca479071135677.png",
     "static/media/HomeDecor1.png": "/static/media/HomeDecor1.316d46f44926f2223015.png",
     "static/media/hero-bg.png": "/static/media/hero-bg.b2a564a17acd9b62c113.png",
     "static/media/formaid1.png": "/static/media/formaid1.af098780e891c1ca9b10.png",
-    "static/media/Resume.pdf": "/static/media/Resume.382dd0678a3b19b2e1f6.pdf",
     "static/media/formaid3.png": "/static/media/formaid3.a9b228f3a9870dbdaa22.png",
     "static/media/HomeDecor2.png": "/static/media/HomeDecor2.e4936b68c25388197209.png",
     "static/media/LFBD1.png": "/static/media/LFBD1.c57e9c3e454fb6358777.png",
@@ -14,6 +13,7 @@
     "static/media/EAASE_MTech.jpeg": "/static/media/EAASE_MTech.8a5d99dc2f7e8a951664.jpeg",
     "static/media/FUKURO_ENV.png": "/static/media/FUKURO_ENV.da81223e247c63d2bfab.png",
     "static/media/sprp4.png": "/static/media/sprp4.17a2ee3796d14744051b.png",
+    "static/media/Resume.pdf": "/static/media/Resume.ffe4144ca174a6c66728.pdf",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/sprp2.png": "/static/media/sprp2.964ecef18f1820846efa.png",
     "static/media/sprp3.png": "/static/media/sprp3.b237362d706d2a633f59.png",
@@ -43,10 +43,10 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/index.html",
     "main.90a36da4.css.map": "/static/css/main.90a36da4.css.map",
-    "main.e3e25062.js.map": "/static/js/main.e3e25062.js.map"
+    "main.f396cc7a.js.map": "/static/js/main.f396cc7a.js.map"
   },
   "entrypoints": [
     "static/css/main.90a36da4.css",
-    "static/js/main.e3e25062.js"
+    "static/js/main.f396cc7a.js"
   ]
 }
