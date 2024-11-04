@@ -26,6 +26,7 @@ app.get('/api/activity',async (req,res)=>{
     }
 })
 
+//something
 app.post('/api/log/path',log.checkToken(),  async(req,res)=>{
     console.log(req.body)
     if(req.visitor){
