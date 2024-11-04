@@ -26,7 +26,7 @@ app.get('/api/activity/adasdad',async (req,res)=>{
     }
 })
 
-app.post('/api/log/path',log.checkToken(),  async(req,res)=>{
+app.post('/api/log/path12321321',log.checkToken(),  async(req,res)=>{
     console.log(req.body)
     if(req.visitor){
         req.visitor.logActivity(req.body.path)
