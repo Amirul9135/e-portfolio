@@ -17,7 +17,7 @@ app.get('/api/stats',async (req,res)=>{
 })
 
 
-app.get('/api/activity/adasdad',async (req,res)=>{
+app.get('/api/activity/adasdaddsadasd',async (req,res)=>{
     try{
         return res.json(await AccessLog.activityLogList(req.query.v,req.query.ts))
 
@@ -26,7 +26,7 @@ app.get('/api/activity/adasdad',async (req,res)=>{
     }
 })
 
-app.post('/api/log/path12321321',log.checkToken(),  async(req,res)=>{
+app.post('/api/log/path12321321432424',log.checkToken(),  async(req,res)=>{
     console.log(req.body)
     if(req.visitor){
         req.visitor.logActivity(req.body.path)
