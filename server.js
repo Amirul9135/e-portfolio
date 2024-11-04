@@ -17,7 +17,7 @@ app.get('/api/stats',async (req,res)=>{
 })
 
 
-app.get('/api/activity',async (req,res)=>{
+app.get('/api/activity/adasdad',async (req,res)=>{
     try{
         return res.json(await AccessLog.activityLogList(req.query.v,req.query.ts))
 
