@@ -1,0 +1,8 @@
+services:
+  e-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:80"
+    restart: unless-stopped
