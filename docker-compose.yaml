@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: ghcr.io/Amirul9135/e-portfolio:latest
     ports:
       - "${PORT}:80"
     restart: unless-stopped
